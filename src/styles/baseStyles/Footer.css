@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'SF Compact Rounded';
+    src: url('../fonts/SF-Compact-Rounded-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SF Compact Rounded Medium';
+    src: url('../fonts/SF-Compact-Rounded-Medium.otf') format('opentype');
+}
+
+:root {
+	--background-color: white;
+	--main-color: #00A6FF;
+	--secondary-color:	#17C3E7;
+	--highlight: #1cc283;
+	--white: whitesmoke;
+	--black: #202124;
+	--lightgray: #F0F0F0;
+	--grayoutline: lightgray;
+	--darkgray: #DEDEDE;
+	--main-font: 'SF Compact Rounded';
+  	--secondary-font: 'SF Compact Rounded Medium';
+}
+
+footer {
+    background-color: var(--black);
+    padding: 20px;
+    width: 100%;
+    min-height: 450px;
+}
+
+.footer-landing {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    padding: 2%;
+  }
+
+.footer-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 250px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--main-color);
+    font-family: var(--secondary-font);
+}
+
+.footer-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 8px 0 8px 0;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+#connect {
+    margin: 8px 0 8px 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 10px;
+    background-color: var(--black);
+    margin-top: 8px;
+}
+
+.social-media a {
+    margin-right: 5%;
+}
+
+#sm-icon {
+    width: 25px;
+    height: 25px;
+    background-color: black;
+}

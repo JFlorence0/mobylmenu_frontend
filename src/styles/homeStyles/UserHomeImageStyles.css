@@ -1,0 +1,743 @@
+.small-images {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+#main-phone {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 120vh;
+	left: -55vw
+}
+
+#main-phone2 {
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	height: auto;
+	right: -55vw;
+	margin-top: 20vh;
+}
+
+#cupcake {
+	position: absolute;
+	top: 105vh;
+	left: 16vw;
+	width: 165px;
+	height: 208px;
+	z-index: 998;
+}
+
+#cherries {
+	position: absolute;
+	top: 0;
+	right:8vw;
+	width: 135px;
+	height: 144px;
+}
+
+#cherries2 {
+	position: absolute;
+	top: 100vh;
+	left:-1vw;
+	width: 135px;
+	height: 144px;
+	transform: scaleX(-1) rotate(30deg);
+}
+
+#bubble {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	right: 3vw;
+	top: 30vh;
+}
+
+#bubble2 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 1vw;
+	top: 26vh;
+}
+
+#bubble3{
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	top: 1300px;
+	left: -100px;
+}
+#bubble4{
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	top: 2vh;
+	right: 30vw;
+}
+
+#bubble5{
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	top: 132vh;
+	left: 30vw;
+}
+
+#bubble6{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	top: 93vh;
+	left: -8vw;
+	z-index: 1000;
+}
+
+#bubble7{
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	top: 168vh;
+	right: 44vw;
+	z-index: 1000;
+}
+
+#bubble8{
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	top: 80vh;
+	right: -3vw;
+	z-index: 1000;
+}
+
+#bubble9{
+	position: absolute;
+	width: 130px;
+	height: 130px;
+	top: 92vh;
+	left: 30vw;
+	z-index: 1000;
+}
+
+#bubble10{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 97vh;
+	left: 37vw;
+	z-index: 1000;
+}
+
+#bubble9, #bubble10, #bubble6, #cherries2, #bubble8, #donut, #bubble5, #bubble7, #bubble {
+    transition: transform 0.1s ease-out;
+}
+
+#donut {
+	position: absolute;
+	width: 102px;
+	height: 109px;
+	top: 84vh;
+	right: 0;
+	z-index: 999;
+}
+
+#m-baloon {
+	position: absolute;
+	width: 138px;
+	height: 134px;
+	top: 175vh;
+	right: 48vw;
+	z-index: 900;
+}
+
+.second-container-landing {
+	display: flex;
+	justify-content: flex-end;
+	height: 100vh;
+	width: 100vw;
+	margin-top: 65vh;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 460px) {
+
+    .consumer-home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .text-container {
+        width: 90vw;
+        margin-top: 10vh;
+    }
+    
+    .business {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2vh;
+        color: white;
+    }
+    
+    .b-paragraph {
+        width: 90%;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    
+    
+    #open-app {
+        margin-top: 2vh;
+        width: 12rem;
+    }
+    
+    .second-container-landing {
+        width: 90vw;
+        margin-top: 130vh;
+        margin-bottom: 40vh;
+    }
+    
+    #cupcake {
+        top: 91vh;
+        left: 88vw;
+        width: 52px;
+        height: 66px;
+        z-index: 998;
+        transform: scaleX(-1);
+    }
+    
+    #donut {
+        position: absolute;
+        width: 100px;
+        height: 104px;
+        top: 245vh;
+        right: 4vw;
+        z-index: 999;
+    }
+    
+    #cherries{
+        display: none;
+    }
+    
+    #bubble8{
+     display: none;
+    }
+    
+    #bubble7{
+     display: none;
+    }
+    
+    #cherries2 {
+        width: 108px;
+        height: 115px;
+        top: 89vh;
+        left: -13vw;
+    }
+    
+    #m-baloon {
+        position: absolute;
+        width: 69px;
+        height: 67px;
+        top: 259vh;
+        left: 1vw;
+        z-index: 900;
+    }
+    
+    #bubble {
+        width: 110px;
+        height: 110px;
+        right: -8vw;
+        top: 88vh;
+        z-index: 1000;
+    }
+    
+    #bubble2 {
+        width: 70px;
+        height: 70px;
+        right: -10vw;
+        top: 78vh;
+    }
+    
+    #bubble3{
+        width: 120px;
+        height: 120px;
+        top: 255vh;
+        left: -5vw;
+    }
+    
+    #bubble4{
+        width: 220px;
+        height: 220px;
+        top: 238vh;
+        right: -12vw;
+        z-index: 1000;
+    }
+    
+    #bubble5{
+        width: 170px;
+        height: 170px;
+        top: 215vh;
+        left: -20vw;
+    
+    }
+    #bubble6{
+        width: 180px;
+        height: 180px;
+        top: 85vh;
+        left: -25vw;
+        z-index: 1000;
+    }
+    
+    #bubble9{
+        width: 90px;
+        height: 90px;
+        top: 140vh;
+        left: -2vw;
+        z-index: 999;
+    }
+    
+    #bubble10 {
+        width: 120px;
+        height: 120px;
+        top: 145vh;
+        left: 7vw;
+        z-index: 999;
+    }
+    
+    #main-phone {
+        width:240%;
+        height: auto;
+        top: 200vh;
+        left: -140vw;
+    }
+    
+    #main-phone2 {
+        z-index: 1000;
+        width: 240%;
+        height: auto;
+        top: 55vh;
+        left: 10vw;
+    }
+    
+    }
+    
+    @media only screen and (min-width: 461px) and (max-width: 563px) {
+    
+    .consumer-home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .text-container {
+        width: 90vw;
+        margin-top: 15vh;
+    }
+    
+    .business {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 2vh;
+        color: white;
+    }
+    
+    .b-paragraph {
+        width: 90%;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    
+    .second-container-landing {
+        height: 140vh;
+        width: 90vw;
+        margin-top: 130vh;
+        margin-bottom: 10vh;
+    }
+    
+    #open-app {
+        margin-top: 3vh;
+    }
+    
+    #cupcake {
+        top: 280vh;
+        left: 55vw;
+        width: 105px;
+        height: 132px;
+        z-index: 998;
+    }
+    
+    #cherries{
+        display: none;
+    }
+    
+    #bubble {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: 3vw;
+        top: 100vh;
+    }
+    
+    #bubble2 {
+        display: none;
+    }
+    
+    #bubble3{
+        width: 200px;
+        height: 200px;
+        top: 250vh;
+        left: 80vw;
+    }
+    
+    #bubble4{
+        width: 100px;
+        height: 100px;
+        top: 270vh;
+        right: -5vw;
+    }
+    
+    #bubble5{
+        width: 110px;
+        height: 110px;
+        top: 250vh;
+        left: 0;
+    
+    }
+    
+    #donut {
+        width: 93px;
+        height: 99px;
+        top: 74vh;
+        right: -3vw;
+        z-index: 999;
+    }
+    
+    #bubble9{
+        width: 170px;
+        height: 170px;
+        top: 91vh;
+        left: 1vw;
+        z-index: 1000;
+    }
+    
+    #bubble10{
+        width: 150px;
+        height: 150px;
+        top: 96vh;
+        left: 13vw;
+        z-index: 1000;
+    }
+    
+    #cherries2 {
+        top: 55vh;
+        left: 0;
+        width: 135px;
+        height: 144px;
+        transform: scaleX(-1) rotate(30deg);
+    }
+    
+    #bubble6{
+        width: 250px;
+        height: 250px;
+        top: 88vh;
+        left: -25vw;
+        z-index: 1000;
+    }
+    
+    #bubble7{
+        width: 180px;
+        height: 180px;
+        top: 270vh;
+        left: -10vw;
+        z-index: 1000;
+    }
+    
+    #m-baloon {
+        width: 99px;
+        height: 93px;
+        top: 276vh;
+        left: -2vw;
+        z-index: 900;
+    }
+    
+    #main-phone {
+        width: 200%;
+        height: auto;
+        top: 215vh;
+        left: -110vw;
+    }
+    
+    #main-phone2 {
+        z-index: 1000;
+        width: 200%;
+        height: auto;
+        top: 70vh;
+        left: 20vw;
+    }
+    
+    #bubble8{
+        width: 180px;
+        height: 180px;
+        top: 68vh;
+        right: -15vw;
+        z-index: 1000;
+    }
+    
+    #bubble9{
+        width: 170px;
+        height: 170px;
+        top: 150vh;
+        left: -10vw;
+        z-index: 999;
+    }
+    
+    #bubble10{
+        width: 150px;
+        height: 150px;
+        top: 155vh;
+        left: 10vw;
+        z-index: 999;
+    }
+    
+    #cherries2 {
+        top: 95vh;
+        left: -10vw;
+        width: 135px;
+        height: 144px;
+        transform: scaleX(-1) rotate(30deg);
+    }
+    
+    }
+    
+    @media only screen and (min-width: 564px) and (max-width: 1000px) {
+    
+    .consumer-home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .text-container {
+        width: 80vw;
+        margin-top: 15vh;
+    }
+    
+    .business {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 2vh;
+        color: white;
+    }
+    
+    .b-paragraph {
+        width: 80%;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    
+    .second-container-landing {
+        height: 140vh;
+        width: 80vw;
+        margin-top: 130vh;
+        margin-bottom: 10vh;
+    }
+    
+    #cupcake {
+        top: 280vh;
+        left: 75vw;
+        width: 105px;
+        height: 132px;
+        z-index: 998;
+    }
+    
+    #cherries{
+        display: none;
+    }
+    
+    #bubble {
+        width: 100px;
+        height: 100px;
+        right: 10vw;
+        top: 80vh;
+    }
+    
+    #bubble2 {
+        display: none;
+    }
+    
+    #bubble3{
+        width: 200px;
+        height: 200px;
+        top: 250vh;
+        left: 80vw;
+    }
+    
+    #bubble4{
+        width: 100px;
+        height: 100px;
+        top: 270vh;
+        right: -5vw;
+    }
+    
+    #bubble5{
+        width: 110px;
+        height: 110px;
+        top: 250vh;
+        left: 0;
+    }
+    
+    #donut {
+        width: 93px;
+        height: 99px;
+        top: 60vh;
+        right: -3vw;
+        z-index: 999;
+    }
+    
+    #bubble9{
+        width: 170px;
+        height: 170px;
+        top: 91vh;
+        left: 1vw;
+        z-index: 1000;
+    }
+    
+    #bubble10{
+        width: 150px;
+        height: 150px;
+        top: 96vh;
+        left: 13vw;
+        z-index: 1000;
+    }
+    
+    #cherries2 {
+        top: 55vh;
+        left: 0;
+        width: 135px;
+        height: 144px;
+        transform: scaleX(-1) rotate(30deg);
+    }
+    
+    #bubble6{
+        width: 250px;
+        height: 250px;
+        top: 88vh;
+        left: -10vw;
+        z-index: 1000;
+    }
+    
+    #bubble7{
+        width: 200px;
+        height: 200px;
+        top: 275vh;
+        left: 2vw;
+        z-index: 1000;
+    }
+    
+    #m-baloon {
+        width: 99px;
+        height: 93px;
+        top: 282vh;
+        left: 7vw;
+        z-index: 900;
+    }
+    
+    #main-phone {
+        width: 150%;
+        height: auto;
+        top: 220vh;
+        left: -70vw;
+    }
+    
+    #main-phone2 {
+        z-index: 1000;
+        width: 150%;
+        height: auto;
+        top: 55vh;
+        left: 25vw;
+    }
+    
+    #bubble8{
+        width: 230px;
+        height: 230px;
+        top: 50vh;
+        right: -15vw;
+        z-index: 1000;
+    }
+    
+    #bubble9{
+        width: 170px;
+        height: 170px;
+        top: 150vh;
+        left: -10vw;
+        z-index: 999;
+    }
+    
+    #bubble10{
+        width: 150px;
+        height: 150px;
+        top: 155vh;
+        left: 10vw;
+        z-index: 999;
+    }
+    
+    #cherries2 {
+        top: 95vh;
+        left: -2vw;
+        width: 135px;
+        height: 144px;
+        transform: scaleX(-1) rotate(30deg);
+    }
+    
+    #open-app {
+        margin-top: 3vh;
+    }
+    
+    }
+    
+    
+    @media only screen and (min-width: 1000px) and (max-width: 1400px) {
+    
+    .text-container {
+        width: 45vw;
+        margin-top: 15vh;
+    }
+    
+    .business {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 2vh;
+        color: white;
+    }
+    
+    .b-paragraph {
+        width: 80%;
+        font-size: 1.6rem;
+        font-weight: 300;
+    }
+    
+    #open-app {
+        min-width: 200px;
+        margin-top: 3vh;
+    }
+    
+    #main-phone {
+        width: 120%;
+        height: auto;
+        top: 110vh;
+        left: -70vw;
+    }
+    
+    #cupcake {
+        top: 105vh;
+        left: 20vw;
+        width: 115px;
+        height: 145px;
+        z-index: 998;
+    }
+    
+    }
+    
+    

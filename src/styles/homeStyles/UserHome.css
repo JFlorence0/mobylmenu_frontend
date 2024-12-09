@@ -1,0 +1,191 @@
+:root {
+	--background-color: white;
+	--main-color: #00A6FF;
+	--secondary-color:	#17C3E7;
+	--highlight: #1cc283;
+	--white: whitesmoke;
+	--black: #202124;
+	--lightgray: #F0F0F0;
+	--grayoutline: lightgray;
+	--darkgray: #DEDEDE;
+	--main-font: 'SF Compact Rounded';
+  	--secondary-font: 'SF Compact Rounded Medium';
+      --blue-color: #2445E6;
+      --pale-blue: #F1F2F8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: 100vw;
+	text-align: center;
+	align-items: center;
+}
+
+.consumer-home {
+	display: flex;
+	position: relative;
+	height: auto;
+    background-color: var(--main-color);
+    background-image: None;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bubble, .cherry, .donut {
+      /* Turn off animations */
+      animation: none;
+      transition: none;
+    }
+}
+
+:focus {
+    outline: 2px solid #0044cc; /* Add a visible outline */
+    outline-offset: 2px;
+}
+
+.arrow {
+    margin-left: 8px;
+    display: inline-block;
+    animation: bounce 1s infinite; /* Animation for bouncing */
+}
+
+.bar {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	background-color: transparent;
+}
+
+.m-logo {
+	width: 50px;
+	height: 50px;
+}
+
+.title {
+	display: flex;
+	font-size: 3rem;
+	color: var(--main-color);
+	font-family: var(--secondary-font);
+	letter-spacing: 0.1em;
+	font-weight: 400;
+	margin-bottom: 10px;
+	background-color: transparent;
+	align-items: flex-end;
+	margin-top: 10vh;
+}
+
+#open-app {
+	padding: 15px;
+	border-radius: 15px;
+	text-decoration: none;
+	color: var(--blue-color);
+	background-color: white;
+	margin-bottom: 1vh;
+	width: 15rem;
+	z-index: 1000;
+	font-size: 1.2rem;
+	font-family: var(--secondary-font);
+}
+
+#open-app:hover {
+	background-color: var(--pale-blue);
+}
+
+.business {
+	font-family: 'Oswald', sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	margin-bottom: 3vh;
+	color: white;
+	z-index: 1000;
+	width: 90%;
+}
+
+.b-paragraph {
+	width: 85%;
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    margin: 10vh auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow {
+    margin-left: 8px;
+    display: inline-block;
+    animation: bounce 1s infinite; /* Animation for bouncing */
+}
+
+/* Define the bouncing keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Starting position */
+    }
+    50% {
+        transform: translateY(-5px); /* Upward movement */
+    }
+}
+
+
+.container {
+	display: flex;
+	width: 45vw;
+	height: 20vh;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 15vh;
+}
+
+.c1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50vw;
+	height: 10vw;
+	margin-top: 25vh;
+	justify-content: flex-start;
+}
+
+#less-margin {
+	margin-top: 15vh;
+}
