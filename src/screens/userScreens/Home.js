@@ -124,7 +124,7 @@ const Home = () => {
             <h3 className="business b-paragraph">
               Create a vibrant, photo-filled menu with free QR codes for easy in-restaurant access. Attract new customers by allowing them to view your pictures and menu before they order.
             </h3>
-            <a id="open-app" href="/get-started">Get Started</a>
+            <a id="open-app" href="/business">Get Started</a>
           </div>
           <img id="main-phone" src="https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/MM-Images/home-long-2.webp" alt="MobylMenu App phone" />
         </section>
