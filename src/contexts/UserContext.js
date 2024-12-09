@@ -19,11 +19,27 @@ export const UserProvider = ({ children }) => {
     }
   }
 
+  const getMenuItems = async (venue) => {
+    if (!venue || !venue.id) {
+        return null;
+    }
+    
+    try {
+        const res = await axios.get(`${BASE_URL}get_menu_items/${venue.id}/`);
+        const response = res.data;
+        return response;
+    } catch (err) {
+        console.log(`Error getting menuItems: ${err}`);
+        return null;
+    }
+  };
+
   return (
     <UserContext.Provider value={{
         user,
         setUser,
-        getVenueById
+        getVenueById,
+        getMenuItems
          }}>
       {children}
     </UserContext.Provider>

@@ -9,12 +9,17 @@ import { UserContext } from '../../contexts/UserContext';
 
 import DesktopPageTop from '../../components/menuComponents/DesktopPageTop';
 import MobilePageTop from '../../components/menuComponents/MobilePageTop';
+import MenuItemSection from '../../components/menuComponents/MenuItemSection';
+import CarouselContainer from '../../components/menuComponents/CarouselContainer';
 
 const Menu = () => {
   const { venue_id } = useParams();
-  const { getVenueById } = useContext(UserContext);
+  const { getVenueById, getMenuItems } = useContext(UserContext);
   const [venue, setVenue] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [menuItems, setMenuItems] = useState([]);
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -22,8 +27,12 @@ const Menu = () => {
     const fetchVenue = async () => {
       try {
         const data = await getVenueById(venue_id);
-        console.log(data);
+
         setVenue(data);
+        setCategories(data.menu.categories);
+
+        const fetchedMenuItems = await getMenuItems(data);
+        setMenuItems(fetchedMenuItems)
 
         // Always set default favicon
         const faviconUrl = '../../../public/assets/MobylMenuLogo.png'; // Default PNG file
@@ -47,6 +56,43 @@ const Menu = () => {
     fetchVenue();
   }, [venue_id, getVenueById]);
 
+  const onCategoryChange = () => {
+    console.log('CAT CHANGE')
+  }
+
+  // Move Left Logic
+const moveLeft = (categoryName) => {
+    const carouselContent = document.getElementById(`carousel-${categoryName}`);
+    const currentIndex = parseInt(carouselContent.dataset.currentIndex, 10);
+    const newIndex = Math.max(0, currentIndex - 1); // Prevent moving beyond the first item
+    carouselContent.dataset.currentIndex = newIndex;
+  
+    // Scroll carousel content to the new position
+    const itemWidth = carouselContent.children[0]?.offsetWidth || 0;
+    carouselContent.scrollTo({
+      left: itemWidth * newIndex,
+      behavior: 'smooth',
+    });
+  };
+  
+  // Move Right Logic
+  const moveRight = (categoryName) => {
+    const carouselContent = document.getElementById(`carousel-${categoryName}`);
+    const currentIndex = parseInt(carouselContent.dataset.currentIndex, 10);
+    const newIndex = Math.min(
+      currentIndex + 1,
+      carouselContent.children.length - 1 // Prevent moving beyond the last item
+    );
+    carouselContent.dataset.currentIndex = newIndex;
+  
+    // Scroll carousel content to the new position
+    const itemWidth = carouselContent.children[0]?.offsetWidth || 0;
+    carouselContent.scrollTo({
+      left: itemWidth * newIndex,
+      behavior: 'smooth',
+    });
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -56,7 +102,7 @@ const Menu = () => {
   }
 
   return (
-    <div>
+    <div className='main-container'>
         <Helmet>
             <title>{`${venue.venue_name} Menu | MobylMenu`}</title>
             <meta property="og:title" content={`${venue.venue_name} Menu | MobylMenu`} />
@@ -82,11 +128,12 @@ const Menu = () => {
             />
         </Helmet>
         {isMobile ? (
-            <MobilePageTop venue={venue} />
+        <MobilePageTop venue={venue} categories={categories} />
         ) : (
-            <DesktopPageTop venue={venue} />
+        <DesktopPageTop venue={venue} categories={categories} />
         )}
-      <Footer />
+        <MenuItemSection categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <CarouselContainer selectedCategory={selectedCategory} categories={categories} menuItems={menuItems}  venue={venue} moveLeft={moveLeft} moveRight={moveRight} orderingEnabled={false} />
     </div>
   );
 };

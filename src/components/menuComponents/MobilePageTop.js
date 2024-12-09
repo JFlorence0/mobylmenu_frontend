@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const MobilePageTop = ({ venue = [] }) => {
+import '../../styles/menuStyles/Menu.css';
+
+const MobilePageTop = ({ venue, categories }) => {
   const [bannerVisible, setBannerVisible] = useState(true);
   if (!venue) return null; // Handle cases where venue is not available
 
   return (
-    <div>
+    <div className="menu-logo-container-mobile" id="menu-logo-container-mobile">
       {bannerVisible && (
         <div className="mobile-banner" id="mobile-banner">
           <a
@@ -48,8 +50,8 @@ const MobilePageTop = ({ venue = [] }) => {
           />
         </div>
         <ul id="category-nav">
-          {venue?.menu?.categories.map((category) => (
-            <li key={category.id}>
+          {categories?.map((category) => (
+            <li key={category.name}>
               <a href={`#${category.id}`}>{category.name}</a>
             </li>
           ))}
