@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/menuStyles/Menu.css';
 
 const DesktopPageTop = ({ venue, fromSearch }) => {
   if (!venue) return null; // Handle cases where venue is not available

@@ -2,9 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import { Helmet } from 'react-helmet-async';
+import { useMediaQuery } from 'react-responsive';
 
 import '../../styles/menuStyles/Menu.css';
 import { UserContext } from '../../contexts/UserContext';
+
+import DesktopPageTop from '../../components/menuComponents/DesktopPageTop';
+import MobilePageTop from '../../components/menuComponents/MobilePageTop';
 
 const Menu = () => {
   const { venue_id } = useParams();
@@ -12,10 +16,13 @@ const Menu = () => {
   const [venue, setVenue] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   useEffect(() => {
     const fetchVenue = async () => {
       try {
-        const data = await getVenueById(venue_id); // Fetch venue details
+        const data = await getVenueById(venue_id);
+        console.log(data);
         setVenue(data);
 
         // Always set default favicon
@@ -74,8 +81,11 @@ const Menu = () => {
             content={venue?.logo_compressed || 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/logo-new.jpeg'} 
             />
         </Helmet>
-      <h1>{venue.venue_name}</h1>
-      <p>{venue.address}</p>
+        {isMobile ? (
+            <MobilePageTop venue={venue} />
+        ) : (
+            <DesktopPageTop venue={venue} />
+        )}
       <Footer />
     </div>
   );
