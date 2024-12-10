@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 
-import '../../styles/RestaurantStyles/RestaurantLandingStyles.css';
+import '../../styles/restaurantStyles/RestaurantLandingStyles.css';
 
 const RestaurantLanding = () => {
   const [slideshowImage, setSlideshowImage] = useState('');

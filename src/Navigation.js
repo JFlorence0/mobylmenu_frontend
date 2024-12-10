@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// User Screens
+// Screens
 import Home from './screens/userScreens/Home';
 import Menu from './screens/userScreens/Menu';
-
-// Business Screens
 import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScreen';
 import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
@@ -13,62 +11,33 @@ import Dashboard from './screens/restaurantScreens/Dashboard';
 // Context
 import { AuthContext } from './contexts/AuthContext';
 
-// Layout for Grouped User Screens
-const UserLayout = () => (
-  <div>
-    {/* Shared Header or Navigation for User Screens */}
-    <header>User Navigation</header>
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="menu/:venue_id" element={<Menu />} />
-    </Routes>
-  </div>
-);
-
-// Layout for Grouped Business Screens
-const BusinessLayout = () => (
-  <div>
-    {/* Shared Header or Navigation for Business Screens */}
-    <header>Business Navigation</header>
-
-    <Routes>
-      <Route path="/" element={<RestaurantLanding />} />
-      <Route
-        path="dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-    </Routes>
-  </div>
-);
-
-// Component to Restrict Access to Authenticated Business Users
-const PrivateRoute = ({ children }) => {
+const Navigation = () => {
   const { isLoggedIn, isVenue } = useContext(AuthContext);
 
-  if (!isLoggedIn || !isVenue) {
-    // Redirect to RestaurantLanding if not authenticated or not a business user
-    return <Navigate to="/business" />;
-  }
+  useEffect(() => {
+    console.log('isLoggedIn:', isLoggedIn, 'isVenue:', isVenue);
+  }, [isLoggedIn, isVenue]);
 
-  return children;
-};
-
-const Navigation = () => {
   return (
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<UserLayout />} />
-        <Route path="auth/" element={<AuthenticationScreen />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/menu/:venue_id" element={<Menu />} />
+        <Route path="/business" element={<RestaurantLanding />} />
+        <Route
+          path="/auth"
+          element={!isLoggedIn ? <AuthenticationScreen /> : <Navigate to={isVenue ? "/dashboard" : "/"} />}
+        />
 
+        {/* Protected Route for Venue Dashboard */}
+        <Route
+          path="/dashboard"
+          element={isLoggedIn && isVenue ? <Dashboard /> : <Navigate to="/auth" />}
+        />
 
-        {/* Business Screens */}
-        <Route path="/business/*" element={<BusinessLayout />} />
+        {/* Catch-all Redirect */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );

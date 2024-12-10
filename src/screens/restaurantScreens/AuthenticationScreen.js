@@ -4,48 +4,48 @@ import AuthButton from '../../components/authComponents/AuthenticationButton';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const AuthenticationScreen = () => {
-  const { checkEmailAvailability } = useContext(AuthContext);
-  const [isRegistering, setIsRegistering] = useState(true); // Toggle between registration and login
-  const [emailError, setEmailError] = useState('');
+  const { checkEmailAvailability, login, errorMessage, setErrorMessage } = useContext(AuthContext);
+  const [isRegistering, setIsRegistering] = useState(false);
   const [suggestedUsername, setSuggestedUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const emailRef = useRef(null);
   const usernameRef = useRef(null);
 
   const toggleForm = () => {
     setIsRegistering(!isRegistering);
-    setEmailError('');
+    setErrorMessage('');
     setSuggestedUsername('');
   };
 
   const handleEmailBlur = async () => {
     const email = emailRef.current.value;
-    console.log(email);
 
     try {
         const data = await checkEmailAvailability(email);
 
         if (data.is_taken_email) {
-            setEmailError('This email is already taken.');
+          setErrorMessage('This email is already taken.');
             setSuggestedUsername('');
             usernameRef.current.value = '';
 
             // Clear the error after 3 seconds
             setTimeout(() => {
-                setEmailError('');
+              setErrorMessage('');
             }, 3000);
         } else {
-            setEmailError('');
+          setErrorMessage('');
             const usernameSuggestion = email.substring(0, email.indexOf('@'));
             setSuggestedUsername(usernameSuggestion);
             usernameRef.current.value = usernameSuggestion;
         }
     } catch (error) {
-        setEmailError('An error occurred, please try again.');
+      setErrorMessage('An error occurred, please try again.');
 
         // Clear the error after 3 seconds
         setTimeout(() => {
-            setEmailError('');
+          setErrorMessage('');
         }, 3000);
     }
 };
@@ -94,7 +94,7 @@ const AuthenticationScreen = () => {
                 <input id="id_password" type="password" name="password" required />
               </div>
               <div className="error-container">
-                <small className="error-message">{emailError}</small>
+                <small className="error-message">{errorMessage}</small>
               </div>
               <div className="button-container">
                 <AuthButton title="Register" onPress={() => {
@@ -118,34 +118,46 @@ const AuthenticationScreen = () => {
             />
           </a>
           <div className="form-container">
-            <form className="form">
-              <input type="hidden" name="csrfmiddlewaretoken" value="your_csrf_token" />
-              <div className="form-item">
-                <label htmlFor="id_login_email">Email:</label>
-                <input id="id_login_email" type="email" name="email" required />
+            <div className="form-item">
+              <label htmlFor="id_login_email">Email:</label>
+              <input
+                id="id_login_email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-item">
+              <label htmlFor="id_login_password">Password:</label>
+              <input
+                id="id_login_password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="button-container">
+              <AuthButton
+                title="Login"
+                onPress={async () => {
+                  await login(email, password);
+                }}
+              />
+              <div className="register-account">
+                <small>
+                  <a href="/password_reset">Forgot Password?</a>
+                </small>
+                <br />
+                Don't have an account?{' '}
+                <small>
+                  <a onClick={toggleForm} style={{ cursor: 'pointer' }}>
+                    Create a free account
+                  </a>
+                </small>
               </div>
-              <div className="form-item">
-                <label htmlFor="id_login_password">Password:</label>
-                <input id="id_login_password" type="password" name="password" required />
-              </div>
-              <div className="button-container">
-                <AuthButton title="Login" onPress={() => {
-                  console.log('LOGIN');
-                }} />
-                <div className="register-account">
-                  <small>
-                    <a href="/password_reset">Forgot Password?</a>
-                  </small>
-                  <br />
-                  Don't have an account?{' '}
-                  <small>
-                    <a onClick={toggleForm} style={{ cursor: 'pointer' }}>
-                      Create a free account
-                    </a>
-                  </small>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </>
       )}
