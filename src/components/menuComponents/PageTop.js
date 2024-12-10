@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import '../../styles/menuStyles/Menu.css';
 
-const MobilePageTop = ({ venue, categories }) => {
+const PageTop = ({ venue, categories, selectedMenu, setSelectedMenu }) => {
   const [bannerVisible, setBannerVisible] = useState(true);
+  console.log('Selected Menu', selectedMenu)
+  console.log(venue?.other_menus)
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   if (!venue) return null; // Handle cases where venue is not available
 
   return (
-    <div className="menu-logo-container-mobile" id="menu-logo-container-mobile">
+    <div className="menu-header-container" style={{ marginTop: isMobile ? (bannerVisible ? '120px' : '60px' ): '0px' }}>
       {bannerVisible && (
         <div className="mobile-banner" id="mobile-banner">
           <a
@@ -41,7 +45,7 @@ const MobilePageTop = ({ venue, categories }) => {
           </div>
         </div>
       )}
-      <div className="category-select-container mobile-only">
+      <div className="category-select-container mobile-only" style={{ top: bannerVisible && isMobile ? '60px' : '0px' }}>
         <div className="scroll-left">
           <img
             id="scroll-left-img"
@@ -70,12 +74,12 @@ const MobilePageTop = ({ venue, categories }) => {
       <div className="company-detail-container">
         <img
           className="cover-photo"
-          src={venue.menu_cover || 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/logo-new.jpeg'}
+          src={venue.picture_compressed || 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/logo-new.jpeg'}
           alt={`Cover photo for ${venue.venue_name}`}
         />
         <img
           className="menu-logo"
-          src={venue.menu_logo || 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/logo-new.jpeg'}
+          src={venue.logo_compressed || 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/logo-new.jpeg'}
           alt={`Menu logo for ${venue.venue_name}`}
         />
 
@@ -110,31 +114,48 @@ const MobilePageTop = ({ venue, categories }) => {
       <div className="venue-information-container">
         <div className="venue-location-container">
           <span className="venue-header-title">{venue.venue_name}</span>
+          <span className="venue-header-information">{venue.address}</span>
+          <span className="venue-header-information">{venue.city}, {venue.country === 'United States' ? venue.state : venue.country} {venue.zipcode}</span>
+          <span className="venue-header-information">{venue.phone_number}</span>
         </div>
       </div>
-
+    
+    <div className="menu-option-container">
       {/* Main Menu */}
-    <Link to={`/menu/${venue.id}`}>
-    <div className={venue.main_menu_selected ? 'selected-menu' : 'other-menus'}>
-        {venue.main_menu_selected?.name || 'Main Menu'}
+      <Link to={`/menu/${venue.id}`}>
+      <div 
+        className={venue.menu.id === selectedMenu?.id ? 'selected-menu' : 'other-menus'}
+        style={{ marginRight: (venue.other_menus && venue.other_menus?.length > 0) ? '20px' : '0px'  }}
+      >
+          {venue.menu?.name || 'Main Menu'}
+      </div>
+      </Link>
+
+      {/* Other Menus */}
+      {venue.other_menus?.map((menu, index) => {
+        // Avoid rendering the main menu again if it's included in other_menus
+        if (menu.id === selectedMenu?.id) {
+            return null;
+        }
+
+        const isLastItem = index === venue.other_menus.length - 1;
+
+        return (
+            <Link key={menu.id} to={`/menu/${venue.id}/${menu.id}`}>
+                <div 
+                    className="other-menus" 
+                    style={isLastItem ? { margin: '0' } : {}}
+                >
+                    {menu.name}
+                </div>
+            </Link>
+        );
+        })}
+
+
     </div>
-    </Link>
-
-    {/* Other Menus */}
-    {venue.other_menus?.map((menu) => {
-    // Avoid rendering the main menu again if it's included in other_menus
-    if (menu.id === venue.main_menu_selected?.id) {
-        return null;
-    }
-
-    return (
-        <Link key={menu.id} to={`/menu/${venue.id}/${menu.id}`}>
-        <div className="other-menus">{menu.name}</div>
-        </Link>
-    );
-    })}
     </div>
   );
 };
 
-export default MobilePageTop;
+export default PageTop;

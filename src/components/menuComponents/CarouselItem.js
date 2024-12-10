@@ -1,8 +1,9 @@
 import React from 'react';
+import OrderInteractionContainer from './OrderInteractionContainer';
 
 import '../../styles/menuStyles/MenuItemSection.css'
 
-const CarouselItem = ({ menuItem, venue, orderingEnabled }) => {
+const CarouselItem = ({ menuItem, venue, orderingEnabled, tableId, addItemToOrder, addItemToOrderWithTableId }) => {
   return (
     <div className="carousel-item">
       <div className="item-container" data-category={menuItem.item_type}>
@@ -17,7 +18,7 @@ const CarouselItem = ({ menuItem, venue, orderingEnabled }) => {
 
           {/* Diet Icons */}
           <div className="diet-container">
-            {menuItem.vegan && (
+            {menuItem.vegan || venue.plant_based && (
               <span className="vegan">
                 <img
                   className="diet-icon"
@@ -103,13 +104,13 @@ const CarouselItem = ({ menuItem, venue, orderingEnabled }) => {
 
         {/* Interaction Container */}
         {orderingEnabled && (
-          <div className="interaction-container">
-            <a href="#" className="link circle">
-              <div className="plus-sign">
-                <span className="quantity-number" id="circle-count"></span>
-              </div>
-            </a>
-          </div>
+          <OrderInteractionContainer 
+            menuItem={menuItem}
+            venue={venue}
+            tableId={tableId}
+            addItemToOrder={addItemToOrder}
+            addItemToOrderWithTableId={addItemToOrderWithTableId}
+          />
         )}
 
         {/* Description */}

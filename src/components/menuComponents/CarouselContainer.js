@@ -9,6 +9,10 @@ const CarouselContainer = ({
   moveLeft,
   moveRight,
   orderingEnabled,
+  activeDotIndex,
+  tableId,
+  addItemToOrder,
+  addItemToOrderWithTableId
 }) => {
   
   // Filter categories and items based on the selected category
@@ -53,6 +57,9 @@ const CarouselContainer = ({
                       menuItem={menuItem}
                       venue={venue}
                       orderingEnabled={orderingEnabled}
+                      tableId={tableId}
+                      addItemToOrder={addItemToOrder}
+                      addItemToOrderWithTableId={addItemToOrderWithTableId}
                     />
                   ))}
                 </div>
@@ -70,7 +77,11 @@ const CarouselContainer = ({
             {/* Dots for Navigation */}
             <div className="dots-container" id={`dots-${category.name}`}>
               {categoryItems.map((_, index) => (
-                <span key={index} className="dot" data-index={index}></span>
+                <span
+                  key={index}
+                  className={`dot ${index === activeDotIndex ? 'active-dot' : ''}`}
+                  data-index={index}
+                ></span>
               ))}
             </div>
           </div>

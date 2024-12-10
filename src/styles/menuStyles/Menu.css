@@ -34,6 +34,7 @@
   --darkgray: #DEDEDE;
   --main-font: 'SF-Compact-Rounded-Regular';
   --secondary-font: 'SF Compact Rounded Medium';
+  --light-font: 'SF Compact Rounded';
   --red: #e60000;
 }
 
@@ -151,6 +152,8 @@ label {
 
 .confirmation-window {
   position: fixed;
+  flex-direction: column;
+  align-items: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -162,6 +165,11 @@ label {
   background-color: var(--true-white);
   z-index: 9999;
   display: none;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
 }
 
 .menu-item {
@@ -208,7 +216,7 @@ label {
   width: 80%;
   justify-content: space-around;
   margin-bottom: 30px;
-  align-self: center;
+  align-items: center;
 }
 
 .confirmation-button-container {
@@ -260,7 +268,6 @@ textarea.note-input {
     margin-bottom: 1rem;
 }
 
-
 input.server-checkbox {
     width: 20px; 
     height: 20px;
@@ -277,7 +284,6 @@ input.server-checkbox {
   border-radius: 10px;
   cursor: pointer;
   width: 35%;
-  margin-right: 5%;
   font-size: 16px;
 }
 
@@ -290,7 +296,6 @@ input.server-checkbox {
   border-radius: 10px;
   cursor: pointer;
   width: 35%;
-  margin: 0 10px;
   font-size: 16px;
 }
 
@@ -408,7 +413,6 @@ button.enabled {
     width: 100%;
     overflow: hidden;
     margin-top: 20px;
-    border: 1px solid green;
 }
 
 .carousel-viewport {
@@ -417,7 +421,6 @@ button.enabled {
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-
 
 .carousel-viewport::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */
@@ -448,7 +451,6 @@ button.enabled {
   display: flex; 
   scroll-snap-align: center;
 }
-
 
 .picture-upload {
   width: 100%;
@@ -493,7 +495,7 @@ button.enabled {
   cursor: pointer;
 }
 
-.dot.active {
+.active-dot {
   background-color: #00a6ff;
 }
 
@@ -615,20 +617,6 @@ select {
   line-height: 1.5rem;
 }
 
-
-.desktop-page-top {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 25%;
-  align-self: flex-start;
-  position: fixed;
-  background-color: var(--true-white);
-  align-items: center;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-  overflow: scroll;
-}
-
 .back {
   align-self: flex-start;
   text-decoration: none;
@@ -641,15 +629,8 @@ select {
   font-weight: bold;
 }
 
-.desktop-header {
-    width: 75%;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-  }
-
 .center {
-  width: 75%;
+  width: 100%;
   align-self: flex-end;
   display: flex;
   flex-direction: column;
@@ -714,8 +695,8 @@ select {
 }
 
 .diet-icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   vertical-align: middle;
 }
 
@@ -723,6 +704,10 @@ select {
   width: 1.4rem;
   height: 1.3rem;
   margin-bottom: 0;
+}
+
+.nuts, .spicy {
+  font-size: 1.4rem;
 }
 
 #gf-size {
@@ -755,30 +740,6 @@ select {
   text-decoration: none;
 }
 
-.other-menus {
-  display: flex;
-  width: 150px;
-  height: 40px;
-  color: var(--black);
-  border: 1px solid var(--grayoutline);
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-.selected-menu {
-  display: flex;
-  width: 150px;
-  height: 40px;
-  color: white;
-  background-color: var(--main-color);
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
-}
-
 .company-detail-container {
   display: flex;
   flex-direction: column;
@@ -796,10 +757,10 @@ select {
 
 .menu-logo {
   position: absolute;
-  top: 80%;
-  left: 10px;
-  width: 100px;
-  height: 100px;
+  top: 75%;
+  right: 25px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateZ(0);
@@ -808,11 +769,11 @@ select {
 .venue-information-container {
   margin-bottom: 20px;
   margin-top: 10px;
-  padding-right: 10px;
+  margin-left: 25px;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .interaction-button-container {
@@ -833,6 +794,63 @@ select {
   border: 2px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-left: 0.5rem;
+}
+
+ .menu-header-container {
+    width: 100vw;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-header-container a {
+  color: var(--main-color);
+  }
+
+  .venue-location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .venue-header-information {
+    font-family: var(--light-font);
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .menu-option-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.other-menus {
+  display: flex;
+  width: 150px;
+  height: 40px;
+  color: var(--black);
+  border: 1px solid var(--grayoutline);
+  border-radius: 10px;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.selected-menu {
+  display: flex;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-right: 20px;
 }
 
 .order-icon {
@@ -861,11 +879,6 @@ select {
   display: none;
   margin-bottom: 2%;
 }
-
-.menu-logo-container-mobile {
-  display: none;
-}
-
 .save-venue {
   margin-top: 2%;
   width: 125px;
@@ -1261,6 +1274,25 @@ video {
 
 
 @media only screen and (max-width: 775px) {
+.menu-header-container {
+  margin-top: 120px;
+}
+
+.menu-option-container {
+  flex-direction: column;
+}
+
+.menu-logo {
+  position: absolute;
+  top: 80%;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+}
+  
 .carousel-container {
     position: relative;
     width: 100%;
@@ -1277,31 +1309,10 @@ video {
   display: flex; 
   scroll-snap-align: center;
 }
-  .menu-logo-container {
-    display: none;
-  }
-
-  .page-top {
-    display: none;
-  }
 
   .center {
     width: 100%;
     align-self: center;
-  }
-
-  .menu-logo-container-mobile {
-    width: 100vw;
-    color: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 120px;
-  }
-
-  .menu-logo-container-mobile a {
-  color: var(--main-color);
   }
 
   .cart-container {
@@ -1318,13 +1329,23 @@ video {
   .cart-order-button {
     width: 27vw;
   }
+  
+  .menu-option-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-}
+  .selected-menu {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+  
+  .other-menus {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
 
-/* Default: Show for desktop, hide for mobile */
-.desktop-only {
-  display: flex;
-  flex-direction: column;
 }
 
 .mobile-only {
