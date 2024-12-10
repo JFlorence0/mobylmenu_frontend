@@ -49,6 +49,8 @@ const OrderInteractionContainer = ({
     }
   };
 
+  console.log('MENU ITEM', menuItem)
+
   return (
     <div className="interaction-container">
       <a
@@ -78,24 +80,24 @@ const OrderInteractionContainer = ({
           <span className="confirmation-menu-item-header-price">{menuItem.price}</span>
 
           {/* Customization Groups */}
-          {menuItem.customizationGroups &&
-            menuItem.customizationGroups.map((group) => (
+          {menuItem.customization_groups &&
+            menuItem.customization_groups.map((group) => (
               <div className="customization-group" key={group.id}>
                 <span className="group-name">{group.name}</span>
                 <div className="group-options">
                   {group.options.map((option) => (
                     <label className="group-option-label" key={option.id}>
                       <input
-                        type={group.maxSelections > 1 ? 'checkbox' : 'radio'}
+                        type={group.max_selections > 1 ? 'checkbox' : 'radio'}
                         name={`customization_group_${group.id}`}
                         value={option.id}
-                        data-price-modifier={option.priceModifier}
+                        data-price-modifier={option.price_modifier}
                         onChange={() =>
                           handleCustomizationChange(group.id, option.id, group.maxSelections > 1)
                         }
                       />
                       {option.name}
-                      {option.priceModifier && ` (+${option.priceModifier})`}
+                      {option.price_modifier && ` (+${option.price_modifier})`}
                     </label>
                   ))}
                 </div>
