@@ -38,12 +38,6 @@
   --red: #e60000;
 }
 
-/*For footer */
-footer {
-  background-color: var(--white);
-  border-top: 2px solid var(--darkgray);
-}
-
 h3 {
   margin: 0.6rem 0;
 }

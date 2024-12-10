@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'SF Compact Rounded';
+    src: url('../fonts/SF-Compact-Rounded-Light.otf') format('opentype');
+    /* You may need to adjust the path '../fonts/' based on your project structure */
+}
+
+@font-face {
+    font-family: 'SF Compact Rounded Medium';
+    src: url('../fonts/SF-Compact-Rounded-Medium.otf') format('opentype');
+    /* You may need to adjust the path '../fonts/' based on your project structure */
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: var(--main-font);
+  color: black;
+}
+
+:root {
+  --background-color: white;
+  --highlight: #1cc283;
+  --main-color: #00A6FF;
+  --white: whitesmoke;
+  --black: #202124;
+  --true-white: white;
+  --lightgray: #F0F0F0;
+  --grayoutline: lightgray;
+  --darkgray: #DEDEDE;
+  --blue: #005A9C;
+  --main-font: 'SF Compact Rounded';
+  --secondary-font: 'SF Compact Rounded Medium';
+  --new-back: #FAFAFF;
+}
+
+.navbar-container {
+  background-color: white;
+}
+
+.nr-main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+.nr-main-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  width: 80%;
+}
+
+.heading-container p {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 5%;
+}
+
+.heading {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: black
+}
+
+.sign-up {
+  background-color: var(--main-color);
+  padding: 10px 45px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sign-up:hover {
+  color: var(--main-color);
+}
+
+.bottom-container {
+  width: 80%;
+  height: 200px;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bullet-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bullet-point {
+  color: black;
+  text-align: center;
+  padding: 15px 5px 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bullet-header h3 {
+  font-family: var(--secondary-font);
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.bullet-image {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.bullet-up {
+  width: 25px;
+  margin-bottom: 10px;
+}
+
+
+.nr-main-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  max-width: 50vw;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#slideshow-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.heading-2, .sub-heading, .heading-3{
+  margin-top: 5%;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+#white {
+  background-color: white;
+  margin-top: 7%;
+}
+
+#blue {
+  color: #00A6FF;
+}
+
+.sub-heading {
+  margin-top: 10%;
+  font-size: 1.6rem;
+}
+
+.heading-3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.main-container-2 {
+  display: flex;
+  width: 100%;
+  margin-bottom: 7rem;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.sub-paragraph {
+  text-align: center;
+  width: 85%;
+  line-height: 1.5rem;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: var(--main-color);
+  font-family: var(--secondary-font);
+  font-weight: 500;
+}
+
+.phone-container {
+  height: 400px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.phone-image {
+  height: 100%;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  background-color: #f5f5f5;
+}
+
+.bottom {
+  display: flex;
+  width: 100%;
+}
+
+@media only screen and (max-width: 860px) {
+  .main-container-2 {
+    flex-direction: column;
+  }
+
+  .sub-container {
+    width: 100%;
+  }
+
+  }
+
+
+@media only screen and (max-width: 750px) {
+  * {
+    font-size: 1rem;
+  }
+  .navbar-container {
+    width: 100vw;
+  }
+  .nr-main-container {
+    width: 100vw;
+  }
+  .nr-main-left {
+    width: 100vw;
+  }
+
+  .bottom-container {
+    width: 100vw;
+  }
+
+  .nr-main-right {
+    display: none;
+  }
+
+  .bottom-container {
+    margin-top: 5%;
+    max-width: 90vw;
+    align-items: flex-start;
+  }
+
+  .bullet-header {
+    height: 70px;
+
+  }
+
+  .heading {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 800;
+  }
+
+  .bullet-up {
+    margin-bottom: 17%;
+  }
+
+  .phone-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 3% auto;
+  }
+
+  .sub-heading {
+    font-size: 1.2rem;
+  }
+
+  .phone-image {
+    height: 100%;
+  }
+
+  .bottom {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding-bottom: 8%;
+  }
+
+  .main-container-2 {
+    margin-bottom: 12%;
+  }
+
+  #white {
+    margin-top: 0;
+  }
+
+
+}

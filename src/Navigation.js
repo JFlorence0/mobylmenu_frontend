@@ -6,7 +6,8 @@ import Home from './screens/userScreens/Home';
 import Menu from './screens/userScreens/Menu';
 
 // Business Screens
-import RestaurantHome from './screens/restaurantScreens/RestaurantHome';
+import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScreen';
+import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
 
 // Context
@@ -32,7 +33,7 @@ const BusinessLayout = () => (
     <header>Business Navigation</header>
 
     <Routes>
-      <Route path="/" element={<RestaurantHome />} />
+      <Route path="/" element={<RestaurantLanding />} />
       <Route
         path="dashboard"
         element={
@@ -50,7 +51,7 @@ const PrivateRoute = ({ children }) => {
   const { isLoggedIn, isVenue } = useContext(AuthContext);
 
   if (!isLoggedIn || !isVenue) {
-    // Redirect to RestaurantHome if not authenticated or not a business user
+    // Redirect to RestaurantLanding if not authenticated or not a business user
     return <Navigate to="/business" />;
   }
 
@@ -62,9 +63,9 @@ const Navigation = () => {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/menu/:venue_id" element={<Menu />} />
-        <Route path="/business" element={<RestaurantHome />} />
+        <Route path="/" element={<UserLayout />} />
+        <Route path="auth/" element={<AuthenticationScreen />} />
+
 
         {/* Business Screens */}
         <Route path="/business/*" element={<BusinessLayout />} />

@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,900&display=swap');
+@font-face {
+    font-family: 'SF Compact Rounded';
+    src: url('../fonts/SF-Compact-Rounded-Light.otf') format('opentype');
+  }
+
+@font-face {
+   font-family: 'SF Compact Rounded Medium';
+         src: url('../fonts/SF-Compact-Rounded-Medium.otf') format('opentype');
+}
+
+:root {
+  --background-color: #202124;
+  --main-color: #00A6FF;
+  --secondary-color:  #17C3E7;
+  --highlight: #1cc283;
+  --white: whitesmoke;
+  --black: #202124;
+  --lightgray: #F0F0F0;
+  --grayoutline: lightgray;
+  --darkgray: #DEDEDE;
+  --main-font: 'SF Compact Rounded';
+}
+
+* {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  font-family: var(--main-font);
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.main-sub-container {
+  text-align: center;
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title a {
+	text-decoration: none;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  width: 30vw;
+  min-width: 400px;
+  text-align: left;
+  padding-top: 2vh;
+}
+
+.error-container {
+    height: 2rem;
+}
+
+.error-message {
+    color: red;
+    font-weight: 600;
+    font-size: 0.79rem;
+}
+
+input {
+  font-size: 1em;
+  width: 60%;
+  height: 45px;
+  margin-bottom: 20px;
+  border: 1.5px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+input:focus {
+  border: 2px solid var(--main-color);
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form {
+  font-size:  1.2em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.form-label {
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.register-account {
+	display: flex;
+	flex-direction: column;
+    margin-top: 1vh;
+}
+
+.register-account small {
+  color: var(--main-color);
+}
+
+.authButton {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    width: 242px;
+    cursor: pointer;
+    font-size: 1.1em;
+    align-self: center;
+    transition: background-color 0.1s ease;
+    margin-bottom: 10px;
+  }
+  
+  /* Hover effect */
+  .authButton:hover {
+
+  }
+  
+  /* Optional: Add focus/active styles for better accessibility */
+  .authButton:focus,
+  .authButton:active {
+    outline: none;
+  }
+
+  .register a, .button-container a {
+    text-decoration: none;
+}
+
+.button-container a:hover {
+    font-family: 'SF Compact Rounded Medium';
+}
+  
+
+.diet {
+  width: 30%;
+  font-size: 1.5em;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.sign-out {
+    margin-top: 5%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
+@media only screen and (max-width: 480px) {
+  .main-container {
+    width: 100vw;
+  }
+
+  .main-sub-container {
+    width: 100vw;
+  }
+
+  .m-logo {
+    width: 4rem;
+    height: 4rem;
+    margin-top: 3px;
+  }
+
+  .title {
+    display: flex;
+    font-size: 1.8rem;
+  }
+
+  input {
+    height: 40px;
+    width: 70%;
+  }
+
+  .form-container {
+    font-size: 0.8em;
+    border: none;
+    text-align: center;
+  }
+}
