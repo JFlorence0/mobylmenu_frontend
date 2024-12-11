@@ -125,7 +125,7 @@
     width: 100%;
 }
 
-button {
+.button {
     margin: 10vh auto;
     display: flex;
     align-items: center;

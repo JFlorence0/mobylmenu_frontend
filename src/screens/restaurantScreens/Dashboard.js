@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import '../../styles/restaurantStyles/DashboardStyles.css';
 import { AuthContext } from '../../contexts/AuthContext'; // Assuming AuthContext provides user and dark_mode data
 
 const Dashboard = () => {
-  const { user, darkMode } = useContext(AuthContext); // Replace with actual context or props for user and dark mode
+  const { userData, darkMode } = useContext(AuthContext); // Replace with actual context or props for user and dark mode
 
   const venues = false; // Replace with dynamic data
   const venuePhoto = false; // Replace with dynamic data
@@ -25,21 +26,30 @@ const Dashboard = () => {
                 />
                 <span className="welcome">Welcome</span>
               </div>
-              <div className="info-header2">
-                <span className="subscribed-text">@{user?.username?.toLowerCase()}</span>
-                <br />
-                <span>MM Member since:</span>
-                <span className="subscribed-text"> {user?.dateJoined}</span>
+              <div className="user-info-container">
+                <span className="subscribed-text">@{userData?.user?.username?.toLowerCase()}</span>
+                <div>
+                  <span>MM Member since: </span>
+                  <span className="subscribed-text">
+                    {userData?.user?.date_joined &&
+                      new Intl.DateTimeFormat('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      }).format(new Date(userData.user.date_joined))}
+                  </span>
+                </div>
+
               </div>
               <div className="info-header3">
-                <a id="display-invite-button" className="action-button" href="#">
+                <Link id="display-invite-button" className="action-button" to="#">
                   <img
                     className="action-plus"
                     src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/plus-fill.png"
                     alt="Invite"
                   />
                   <span className="action-text">Invite a Team Member</span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -50,9 +60,9 @@ const Dashboard = () => {
                     <span className="next-header">What's Next?</span>
                     <div className="next-item-container">
                       <span className="pulsating-circle"></span>
-                      <a className="next-item" href="/add-venue">
+                      <Link className="next-item" to="/add-venue">
                         Add A Venue
-                      </a>
+                      </Link>
                     </div>
                   </>
                 )}
@@ -61,9 +71,9 @@ const Dashboard = () => {
                     <span className="next-header">What's Next?</span>
                     <div className="next-item-container">
                       <span className="pulsating-circle"></span>
-                      <a className="next-item" href="/update-venue-photos">
+                      <Link className="next-item" to="/update-venue-photos">
                         Add Venue Photos
-                      </a>
+                      </Link>
                     </div>
                   </>
                 )}
@@ -72,9 +82,9 @@ const Dashboard = () => {
                     <span className="next-header">What's Next?</span>
                     <div className="next-item-container">
                       <span className="pulsating-circle"></span>
-                      <a className="next-item" href="/edit-menu">
+                      <Link className="next-item" to="/edit-menu">
                         Add menu items to your main menu
-                      </a>
+                      </Link>
                     </div>
                   </>
                 )}
@@ -83,7 +93,7 @@ const Dashboard = () => {
           </div>
           <div className="options">
             <div id="hover-container">
-              <a className="pair" id="blue" href="/edit-menu">
+              <Link className="pair" id="blue" to="/manage-menu">
                 <img
                   className="chevron-up"
                   id="manage-icon"
@@ -95,9 +105,9 @@ const Dashboard = () => {
                   alt="Manage Menus"
                 />
                 <p>Manage Menus</p>
-              </a>
+              </Link>
             </div>
-            <a className="pair" id="venues-link" href="/venue-locations">
+            <Link className="pair" id="venues-link" to="/venue-locations">
               <img
                 id="venue-image"
                 className="chevron-right"
@@ -109,13 +119,13 @@ const Dashboard = () => {
                 alt="My Venues"
               />
               <span>My Venues</span>
-            </a>
+            </Link>
             <div
               id=""
               className="hover-container-subscriptions"
               style={{ pointerEvents: 'none', opacity: 0.5, filter: 'grayscale(100%)' }}
             >
-              <a className="pair" id="launch-link-home" href="/network-hub">
+              <Link className="pair" id="launch-link-home" to="/network-hub">
                 <img
                   className="image"
                   id="network-icon-home"
@@ -123,7 +133,7 @@ const Dashboard = () => {
                   alt="Pegasus"
                 />
                 <span>Pegasus</span>
-              </a>
+              </Link>
             </div>
 
             <div
@@ -131,7 +141,7 @@ const Dashboard = () => {
               className="hover-container-subscriptions"
               style={{ pointerEvents: 'none', opacity: 0.5, filter: 'grayscale(100%)' }}
             >
-              <a className="pair" id="settings-link-home">
+              <Link className="pair" id="settings-link-home" to="#">
                 <img
                   className="image"
                   id="settings-icon-home"
@@ -139,14 +149,14 @@ const Dashboard = () => {
                   alt="Subscriptions"
                 />
                 <span>Subscriptions</span>
-              </a>
+              </Link>
               {subscribed ? (
                 <div className="menu-options">
                   <ul id="subscription-list">
                     <li>
-                      <a id="modify-subscription" href="/modify-subscription">
+                      <Link id="modify-subscription" to="/modify-subscription">
                         Manage Subscription
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -154,16 +164,16 @@ const Dashboard = () => {
                 <div className="menu-options">
                   <ul id="subscription-list">
                     <li>
-                      <a id="modify-subscription" href="/subscribe">
+                      <Link id="modify-subscription" to="/subscribe">
                         Subscribe
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
               )}
             </div>
 
-            <a className="pair" id="settings-link-home" href="/user-settings">
+            <Link className="pair" id="settings-link-home" to="/settings">
               <img
                 className="image"
                 id="settings-icon-home"
@@ -171,7 +181,7 @@ const Dashboard = () => {
                 alt="Settings"
               />
               <span>Settings</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

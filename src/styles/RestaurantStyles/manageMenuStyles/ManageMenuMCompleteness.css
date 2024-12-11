@@ -1,0 +1,17 @@
+.menu-completness-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 2rem;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+  }
+  
+  .menu-complete-percentage-container {
+    display: flex;
+  }
+  
+  .menu-completness-text {
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+  }

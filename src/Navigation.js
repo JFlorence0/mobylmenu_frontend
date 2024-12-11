@@ -4,9 +4,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Screens
 import Home from './screens/userScreens/Home';
 import Menu from './screens/userScreens/Menu';
+
 import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScreen';
 import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
+import ManageMenuScreen from './screens/restaurantScreens/ManageMenuScreen';
+import VenueLocationsScreen from './screens/restaurantScreens/VenueLocationsScreen';
+import SettingsScreen from './screens/restaurantScreens/SettingsScreen';
 
 // Context
 import { AuthContext } from './contexts/AuthContext';
@@ -15,7 +19,7 @@ const Navigation = () => {
   const { isLoggedIn, isVenue } = useContext(AuthContext);
 
   useEffect(() => {
-    console.log('isLoggedIn:', isLoggedIn, 'isVenue:', isVenue);
+    
   }, [isLoggedIn, isVenue]);
 
   return (
@@ -34,6 +38,18 @@ const Navigation = () => {
         <Route
           path="/dashboard"
           element={isLoggedIn && isVenue ? <Dashboard /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/manage-menu"
+          element={isLoggedIn && isVenue ? <ManageMenuScreen /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/venue-locations"
+          element={isLoggedIn && isVenue ? <VenueLocationsScreen /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/settings"
+          element={isLoggedIn && isVenue ? <SettingsScreen /> : <Navigate to="/auth" />}
         />
 
         {/* Catch-all Redirect */}

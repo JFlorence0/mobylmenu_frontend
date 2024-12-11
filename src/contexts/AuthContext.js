@@ -12,14 +12,16 @@ export const AuthProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [userData, setUserData] = useState(null);
 
+  console.log(userData);
+
   // Load user from localStorage on app load
   useEffect(() => {
     let savedUserData = localStorage.getItem('userData');
     savedUserData = JSON.parse(savedUserData)
-    if (savedUserData?.token && savedUserData?.is_venue) {
+    if (savedUserData?.token && savedUserData?.user?.is_venue) {
       setUserData(savedUserData);
       setIsLoggedIn(true);
-      setIsVenue(savedUserData.is_venue);
+      setIsVenue(savedUserData?.user?.is_venue);
       console.log('LOG SAVED USER DATA', savedUserData);
     }
   }, []);
@@ -41,16 +43,17 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => { 
     try {
       // Send request with the correct payload structure
-      const response = await axios.post(`${BASE_URL}login/`, {
+      const response = await axios.post(`${BASE_URL}login_web/`, {
         username,
         password
       });
   
       if (response.status === 200) {
         const fetchedUserData = response.data;
+        console.log(fetchedUserData);
         setUserData(fetchedUserData);
         setIsLoggedIn(true);
-        setIsVenue(fetchedUserData?.is_venue);
+        setIsVenue(fetchedUserData?.user?.is_venue);
         localStorage.setItem('userData', JSON.stringify(fetchedUserData));
 
       } else {
@@ -75,7 +78,8 @@ export const AuthProvider = ({ children }) => {
         errorMessage,
         setErrorMessage,
         login,
-        userData
+        userData,
+        setUserData
         }}>
       {children}
     </AuthContext.Provider>

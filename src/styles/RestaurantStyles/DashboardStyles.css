@@ -48,12 +48,15 @@ a:visited {
   flex-direction: column;
 }
 
+.main-container {
+    height: 100%;
+}
+
 .main-sub-container {
-  height: 90vh;
+  height: 100vh;
   margin-right: 30px;
   width: 100vw;
   background-color: transparent;
-  border: 1px solid red;
 }
 
 .company-info {
@@ -87,6 +90,9 @@ a:visited {
   width: 45%;
   height: 100%;
   min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .next-action-container {
@@ -106,6 +112,37 @@ a:visited {
   display: flex;
   align-items: flex-end;
   margin-bottom: 1rem;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.action-button {
+	display: flex;
+	padding: 0.3rem 1.5rem;
+	justify-content: center;
+	border-top: 0.5px solid lightgrey; 
+  border-left: 0.5px solid lightgrey;
+  border-bottom: 3px solid lightgrey; 
+  border-right: 2px solid lightgrey;
+  margin-right: 2rem;
+  border-radius: 5px;
+  min-width: 210px;
+}
+
+.action-plus {
+	width: 15px;
+	height: 15px;
+	margin-right: 12px;
+}
+
+.action-text {
+	font-size: 0.8rem;
+	color: var(--main-color);
+	font-family: var(--secondary-font);
 }
 
 .next-item-container {
@@ -195,6 +232,7 @@ a:visited {
 
 .subscribed-text {
   font-family: var(--secondary-font);
+  align-self: flex-start;
 }
 
 .options {
@@ -836,11 +874,6 @@ select.languages {
       justify-content: space-around;
       font-size: 16px;
       border-radius: 8px;
-    }
-
-    .info-header3, .info-header2 {
-      width: 300px;
-
     }
 
     .pair span, .pair p {
