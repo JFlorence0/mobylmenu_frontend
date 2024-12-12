@@ -1,0 +1,26 @@
+.venue-locations-list-container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    max-height: 85%;
+  }
+
+  .venue-locations-list-item-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--lightgray);
+    background: white;
+  }
+
+  .venue-locations-list-item {
+    padding-bottom: 8px;
+  }
+
+  .venue-locations-list-action-container {
+    margin-right: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }

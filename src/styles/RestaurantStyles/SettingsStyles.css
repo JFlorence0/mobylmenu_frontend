@@ -1,0 +1,20 @@
+.settings-wheel {
+	height: 2rem;
+	width: 2rem;
+	margin-right: 15px;
+  	margin-bottom: 0.3rem;
+}
+
+.chevron-right {
+    width: 7px;
+    height: 14px;
+  }
+
+  .chevron-up {
+    width: 14px;
+    height: 7px;
+  }
+
+  .chevron-up, .chevron-right {
+    margin-right: 5px;
+  }

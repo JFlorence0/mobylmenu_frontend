@@ -9,7 +9,9 @@ import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScre
 import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
 import ManageMenuScreen from './screens/restaurantScreens/ManageMenuScreen';
+import ManageMenuItemScreen from './screens/restaurantScreens/ManageMenuItemScreen';
 import VenueLocationsScreen from './screens/restaurantScreens/VenueLocationsScreen';
+import ManageVenueScreen from './screens/restaurantScreens/ManageVenueScreen';
 import SettingsScreen from './screens/restaurantScreens/SettingsScreen';
 
 // Context
@@ -44,8 +46,16 @@ const Navigation = () => {
           element={isLoggedIn && isVenue ? <ManageMenuScreen /> : <Navigate to="/auth" />}
         />
         <Route
+          path="/manage-menu-item"
+          element={isLoggedIn && isVenue ? <ManageMenuItemScreen /> : <Navigate to="/auth" />}
+        />
+        <Route
           path="/venue-locations"
           element={isLoggedIn && isVenue ? <VenueLocationsScreen /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/manage-venue"
+          element={isLoggedIn && isVenue ? <ManageVenueScreen /> : <Navigate to="/auth" />}
         />
         <Route
           path="/settings"

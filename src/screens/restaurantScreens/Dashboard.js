@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import '../../styles/restaurantStyles/DashboardStyles.css';
-import { AuthContext } from '../../contexts/AuthContext'; // Assuming AuthContext provides user and dark_mode data
+import { AuthContext } from '../../contexts/AuthContext';
+import Header from '../../components/Header';
+import HeaderSpacer from '../../components/HeaderSpacer';
 
 const Dashboard = () => {
-  const { userData, darkMode } = useContext(AuthContext); // Replace with actual context or props for user and dark mode
+  const { userData, darkMode } = useContext(AuthContext);
 
   const venues = false; // Replace with dynamic data
   const venuePhoto = false; // Replace with dynamic data
@@ -15,6 +17,8 @@ const Dashboard = () => {
   return (
     <div className="main-container">
       <div className="main-sub-container">
+        <Header currentScreen={"Dashboard"}/>
+        <HeaderSpacer />
         <div className="company-info">
           <div className="info-container">
             <div className="welcome-info-container">

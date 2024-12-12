@@ -1,0 +1,105 @@
+.venue-locations-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .venue-locations-header h2 {
+    margin-bottom: 5px;
+  }
+
+  .venue-locations-top {
+    display: flex;
+    align-items: center;
+  }
+  
+  .help-container-header {
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .venue-locations-question {
+    width: 14px;
+    height: 15px;
+    margin-left: 5px;
+  }
+
+  .venue-locations-plus-sign {
+    height: 1.1rem;
+    width: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .venue-locations-options-dropdown-container {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .venue-locations-options-dropdown {
+    position: relative;
+    width: 200px;
+    height: 45px;
+  }
+  
+  .venue-locations-options-dropdown .select-btn {
+    display: flex;
+    height: 40px;
+    background-color: #fff;
+    padding: 8px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    border: 2px solid var(--lightgray);
+    font-size: 8px;
+  }
+  
+  .venue-locations-options-dropdown .venue-locations-options {
+    position: relative;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 10px;
+    border: 2px solid var(--lightgray);
+  }
+  
+  .venue-locations-options {
+    position: relative;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 10px;
+    border: 2px solid var(--lightgray);
+  }
+  
+  
+  .venue-locations-options-dropdown.active .venue-locations-options {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  
+  .venue-locations-options .option {
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 8px;
+    align-items: center;
+    background-color: #fff;
+    font-size: 14px;
+    justify-content: flex-start;
+  }
+  
+  .venue-locations-upload {
+    height: 1rem;
+    width: 1.1rem;
+  }
+
+  .venue-locations-tags {
+    height: 1.1rem;
+    width: 1.1rem;
+  }

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'SF Compact Rounded Medium';
-    src: url('../fonts/SF-Compact-Rounded-Medium.otf') format('opentype');
+    src: url('../fonts/SF-Compact/SF-Compact-Rounded-Medium.otf') format('opentype');
     /* You may need to adjust the path '../fonts/' based on your project structure */
 }
 
@@ -39,10 +39,6 @@ a {
   color: black;
 }
 
-a:visited {
-  color: black;
-}
-
 #form {
   display: flex;
   flex-direction: column;
@@ -54,7 +50,6 @@ a:visited {
 
 .main-sub-container {
   height: 100vh;
-  margin-right: 30px;
   width: 100vw;
   background-color: transparent;
 }

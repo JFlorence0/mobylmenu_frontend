@@ -3,12 +3,13 @@ import { BusinessContext } from '../../contexts/BusinessContext';
 import ManageMenuItemsSection from '../../components/businessComponents/manageMenuComponents/ManageMenuItemsSection';
 import ManageMenuItemsHeader from '../../components/businessComponents/manageMenuComponents/ManageMenuItemsHeader';
 import '../../styles/restaurantStyles/ManageMenuStyles.css';
+import Header from '../../components/Header';
+import HeaderSpacer from '../../components/HeaderSpacer';
 
 const ManageMenuScreen = () => {
-  const { getAllMenus, getAllMenuItems } = useContext(BusinessContext);
+  const { getAllMenus, getAllMenuItems, displayedMenuItems } = useContext(BusinessContext);
   const [menus, setMenus] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState(null);
-  const [menuItems, setMenuItems] = useState()
   const [categories, setCategories] = useState([]);
 
   const onAdd = () => {
@@ -49,9 +50,6 @@ const ManageMenuScreen = () => {
 
             // Fetch menu items for the main menu
             const fetchedMenuItems = await getAllMenuItems(mainMenu.id);
-            if (fetchedMenuItems) {
-              setMenuItems(fetchedMenuItems);
-            }
           }
         }
       } catch (error) {
@@ -64,10 +62,12 @@ const ManageMenuScreen = () => {
 
   return (
     <div>
+        <Header path={[{ label: 'Manage Menu', link: '/manage-menu' }]} />
+        <HeaderSpacer />
         <ManageMenuItemsHeader menus={menus} currentMenuId={selectedMenu?.id} onCreateMenu={onCreateMenu}
-          menuItems={menuItems} menuCompleteness={menuCompleteness} menuNotCompleteText={menuNotCompleteText}
+          menuItems={displayedMenuItems} menuCompleteness={menuCompleteness} menuNotCompleteText={menuNotCompleteText}
         />
-        <ManageMenuItemsSection categories={categories} menuItems={menuItems} onEdit={onEdit} onDelete={onDelete} onAdd={onAdd} />
+        <ManageMenuItemsSection categories={categories} menuItems={displayedMenuItems} onEdit={onEdit} onDelete={onDelete} onAdd={onAdd} />
     </div>
   );
 };

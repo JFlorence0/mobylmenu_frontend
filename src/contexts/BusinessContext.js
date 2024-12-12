@@ -9,6 +9,7 @@ export const BusinessContext = createContext();
 // Create a provider component
 export const BusinessProvider = ({ children }) => {
   const { userData } = useContext(AuthContext);
+  const [displayedMenuItems, setDisplayedMenuItems] = useState([]);
 
   const getAllMenus = async () => {
     try {
@@ -34,7 +35,8 @@ export const BusinessProvider = ({ children }) => {
         }
       });
   
-      return response.data;
+      setDisplayedMenuItems(response.data);
+      return displayedMenuItems;
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;
@@ -57,12 +59,86 @@ export const BusinessProvider = ({ children }) => {
     }
   };
 
+  const createMenuItem = async (menuItemData, menu) => {
+    try {
+      // Add the menu ID to the FormData
+      menuItemData.append('menu', menu);
+  
+      console.log('Data being sent for new menu item:', menuItemData);
+  
+      const res = await axios.post(
+        `${MOBYLMENU_API_BASE_URL}/menu_item/`,
+        menuItemData,
+        {
+          headers: {
+            Authorization: `Token ${restaurantInfo?.token}`, // Add the token here
+            'Content-Type': 'multipart/form-data', // Ensure correct content type
+          },
+        }
+      );
+  
+      const newItem = res.data;
+  
+      // Update displayedMenuItems with the new item
+      setDisplayedMenuItems((prevItems) => ({
+        ...prevItems,
+        [newItem.id]: newItem,
+      }));
+  
+      return newItem;
+    } catch (error) {
+      console.error('Error creating menu item:', error);
+      throw error;
+    }
+  };
+  
+    const updateMenuItem = async (menuItemId, formData) => {
+      try {
+    
+        // Omit 'picture' and 'picture_compressed' fields if they are URLs
+        if (formData.get('picture') && typeof formData.get('picture') === 'string' && formData.get('picture').startsWith('http')) {
+          formData.delete('picture'); // Remove the field from formData
+        }
+    
+        if (formData.get('picture_compressed') && typeof formData.get('picture_compressed') === 'string' && formData.get('picture_compressed').startsWith('http')) {
+          formData.delete('picture_compressed'); // Remove the field from formData
+        }
+  
+        console.log('FORM DATA', formData);
+    
+        // Send the processed formData to the backend
+        const res = await axios.put(
+          `${MOBYLMENU_API_BASE_URL}/menu_item/${menuItemId}/`,
+          formData, // Send the formData directly
+          {
+            headers: {
+              Authorization: `Token ${restaurantInfo?.token}`,
+              'Content-Type': 'multipart/form-data', // Ensure the correct content type
+            },
+          }
+        );
+    
+        const updatedItem = res.data;
+    
+        // Update displayedMenuItems with the updated item
+        setDisplayedMenuItems((prevItems) => ({
+          ...prevItems,
+          [updatedItem.id]: updatedItem, // Replace the existing item with the updated one
+        }));
+    
+        return updatedItem;
+      } catch (error) {
+        console.error('Error updating menu item:', error);
+        throw error;
+      }
+    };
 
   return (
     <BusinessContext.Provider value={{ 
       getAllMenus,
       getAllMenuItems,
-      getAllVenues
+      getAllVenues,
+      displayedMenuItems
      }}>
       {children}
     </BusinessContext.Provider>
