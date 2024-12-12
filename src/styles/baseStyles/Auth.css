@@ -74,7 +74,7 @@
     font-size: 0.79rem;
 }
 
-input {
+.auth-input {
   font-size: 1em;
   width: 60%;
   height: 45px;
@@ -84,7 +84,7 @@ input {
   padding-left: 5px;
 }
 
-input:focus {
+.auth-input:focus {
   border: 2px solid var(--main-color);
 }
 
@@ -193,7 +193,7 @@ input:focus {
     font-size: 1.8rem;
   }
 
-  input {
+  .auth-input {
     height: 40px;
     width: 70%;
   }

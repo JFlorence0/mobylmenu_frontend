@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BusinessContext } from '../../contexts/BusinessContext';
+import Header from '../../components/Header';
+import HeaderSpacer from '../../components/HeaderSpacer';
+import CustomizationForm from '../../components/businessComponents/manageMenuComponents/CustomizationForm';
+
+import '../../styles/restaurantStyles/manageMenuStyles/ManageMenuItemFormStyles.css'
 
 const ManageMenuItemScreen = () => {
     const { updateMenuItem, createMenuItem } = useContext(BusinessContext);
@@ -91,6 +96,13 @@ const ManageMenuItemScreen = () => {
     const toggleCustomizableContainerVisible = () => {
       setCustomizableContainerVisible(!customizableContainerVisible);
     }
+
+    const toggleDietaryOption = (key) => {
+      setDietaryOptions((prevOptions) => ({
+        ...prevOptions,
+        [key]: !prevOptions[key],
+      }));
+    };
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -191,12 +203,15 @@ const ManageMenuItemScreen = () => {
 
     return (
         <div className="form-container1">
+          <Header path={[{"label": "Manage Menu", "link": "/manage-menu"},
+            {"label": "Manage Menu Item", "link": "/manage-menu-item"}]} />
+          <HeaderSpacer />
             <div className="form-container-header">
                 <h2>{menuItem ? 'Edit Menu Item' : 'Add Menu Item'}</h2>
             </div>
 
             <div className="form-group">
-              <label style={{ marginTop: '20px' }}>Name</label>
+              <label>Name</label>
               <input
                 className="form-control"
                 value={name}
@@ -259,8 +274,8 @@ const ManageMenuItemScreen = () => {
               </div>
             </div>
 
-            <div className="form-group">
-              <label style={{ marginTop: '10px' }}>Dietary Options</label>
+            <div className="checkbox-form-group">
+              <h3 className="category-label">Dietary Options</h3>
               <div className="checkbox-outer-container">
                 {Object.keys(dietaryOptions)
                   .reduce((rows, key, index, keys) => {
@@ -277,7 +292,7 @@ const ManageMenuItemScreen = () => {
                             onChange={() => toggleDietaryOption(key)}
                             id={key}
                           />
-                          <label htmlFor={key}>{key.replace('_', ' ')}</label>
+                          <span htmlFor={key}>{key.replace('_', ' ')}</span>
                         </div>
                       ))}
                     </div>

@@ -1,0 +1,49 @@
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+
+.form-group label {
+    font-family: var(--secondary-font);
+    width: 100px;
+    margin-top: 0;
+}
+
+.form-group input {
+    height: 35px;
+    align-self: center;
+    margin-bottom: 0;
+}
+
+.category-label {
+    font-family: var(--secondary-font);
+    margin-bottom: 20px;
+}
+
+.checkbox-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.checkbox-container span {
+    font-family: var(--secondary-font);
+}
+
+.checkbox-container input {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}

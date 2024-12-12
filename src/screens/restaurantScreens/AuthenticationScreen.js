@@ -66,7 +66,9 @@ const AuthenticationScreen = () => {
           <div className="form-container">
             <form className="form">
               {/* Simulating Django CSRF token for React */}
-              <input type="hidden" name="csrfmiddlewaretoken" value="your_csrf_token" />
+              <input type="hidden" name="csrfmiddlewaretoken" value="your_csrf_token" 
+                className="auth-input"
+              />
               <div className="form-item">
                 <label htmlFor="id_email">Email:</label>
                 <input
@@ -76,6 +78,7 @@ const AuthenticationScreen = () => {
                   ref={emailRef}
                   onBlur={handleEmailBlur}
                   required
+                  className="auth-input"
                 />
               </div>
               <div className="form-item">
@@ -87,11 +90,12 @@ const AuthenticationScreen = () => {
                   ref={usernameRef}
                   defaultValue={suggestedUsername}
                   required
+                  className="auth-input"
                 />
               </div>
               <div className="form-item">
                 <label htmlFor="id_password">Password:</label>
-                <input id="id_password" type="password" name="password" required />
+                <input id="id_password" type="password" name="password" required className="auth-input"/>
               </div>
               <div className="error-container">
                 <small className="error-message">{errorMessage}</small>
@@ -126,6 +130,7 @@ const AuthenticationScreen = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="auth-input"
               />
             </div>
             <div className="form-item">
@@ -136,6 +141,7 @@ const AuthenticationScreen = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="auth-input"
               />
             </div>
             <div className="button-container">
