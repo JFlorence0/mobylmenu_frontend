@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import { Helmet } from 'react-helmet-async';
 import { useMediaQuery } from 'react-responsive';
 
-import '../../styles/menuStyles/Menu.css';
+import '../../styles/userStyles/menuStyles/Menu.css';
 import { UserContext } from '../../contexts/UserContext';
 
 import PageTop from '../../components/menuComponents/PageTop';

@@ -1,10 +1,10 @@
 import React, { useEffect, useContext, useState} from 'react';
-import { BusinessContext } from '../../contexts/BusinessContext';
-import ManageMenuItemsSection from '../../components/businessComponents/manageMenuComponents/ManageMenuItemsSection';
-import ManageMenuItemsHeader from '../../components/businessComponents/manageMenuComponents/ManageMenuItemsHeader';
-import '../../styles/restaurantStyles/ManageMenuStyles.css';
-import Header from '../../components/Header';
-import HeaderSpacer from '../../components/HeaderSpacer';
+import { BusinessContext } from '../../../contexts/BusinessContext';
+import ManageMenuItemsSection from '../../../components/businessComponents/manageMenuComponents/ManageMenuItemsSection';
+import ManageMenuItemsHeader from '../../../components/businessComponents/manageMenuComponents/ManageMenuItemsHeader';
+import '../../../styles/restaurantStyles/ManageMenuStyles.css';
+import Header from '../../../components/Header';
+import HeaderSpacer from '../../../components/HeaderSpacer';
 
 const ManageMenuScreen = () => {
   const { getAllMenus, getAllMenuItems, displayedMenuItems } = useContext(BusinessContext);

@@ -102,12 +102,18 @@ const ManageMenuItemsSection = ({ categories, menuItems, onEdit, onDelete, onAdd
                     </div>
 
                     <div className="action-container">
-                      <Link
-                        className="item-options"
-                        to={`/menu/edit/${menuItem.id}`}
-                      >
-                        Edit Menu Item
-                      </Link>
+                    <Link
+                      className="item-options"
+                      to={{
+                        pathname: `/manage-menu-item`,
+                      }}
+                      state={{
+                        menuItem: menuItem,
+                        categories,
+                      }}
+                    >
+                      Edit Menu Item
+                    </Link>
                       <Link
                         className="item-options"
                         to={`/menu/customize/${menuItem.id}`}

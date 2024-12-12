@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BusinessContext } from '../../contexts/BusinessContext';
-import Header from '../../components/Header';
-import HeaderSpacer from '../../components/HeaderSpacer';
-import CustomizationForm from '../../components/businessComponents/manageMenuComponents/CustomizationForm';
+import { BusinessContext } from '../../../contexts/BusinessContext';
+import Header from '../../../components/Header';
+import HeaderSpacer from '../../../components/HeaderSpacer';
+import CustomizationForm from '../../../components/businessComponents/manageMenuComponents/CustomizationForm';
 
-import '../../styles/restaurantStyles/manageMenuStyles/ManageMenuItemFormStyles.css'
+import '../../../styles/restaurantStyles/manageMenuStyles/ManageMenuItemFormStyles.css'
 
 const ManageMenuItemScreen = () => {
     const { updateMenuItem, createMenuItem } = useContext(BusinessContext);
@@ -15,7 +15,6 @@ const ManageMenuItemScreen = () => {
     // Access data from location state or set defaults
     const menuItem = location.state?.menuItem || null;
     const categories = location.state?.categories || null;
-    const orderingEnabled = location.state?.orderingEnabled || false;
     const venue = location.state?.venue || null;
 
     const [name, setName] = useState(menuItem?.name || '');

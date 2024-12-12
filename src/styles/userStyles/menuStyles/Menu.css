@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'SF Compact Rounded';
-    src: url('../fonts/SF-Compact/SF-Compact-Rounded-Light.otf') format('opentype');
+    src: url('../../fonts/SF-Compact/SF-Compact-Rounded-Light.otf') format('opentype');
     /* You may need to adjust the path '../fonts/' based on your project structure */
 }
 
 @font-face {
     font-family: 'SF Compact Rounded Medium';
-    src: url('../fonts/SF-Compact/SF-Compact-Rounded-Medium.otf') format('opentype');
+    src: url('../../fonts/SF-Compact/SF-Compact-Rounded-Medium.otf') format('opentype');
     /* You may need to adjust the path '../fonts/' based on your project structure */
 }
 
 @font-face {
   font-family: 'SF-Compact-Rounded-Regular';
-  src: url('../fonts/SF-Compact/SF-Compact-Rounded-Medium.otf') format('opentype');
+  src: url('../../fonts/SF-Compact/SF-Compact-Rounded-Medium.otf') format('opentype');
 }
 
 * {

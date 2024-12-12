@@ -38,7 +38,15 @@ const VenueLocationsListComponent = ({ venues, subscribedToSpotlightVenueIds,
             {venue.zipcode}
             </div>
             <div className="venue-locations-list-action-container">
-            <Link to={`/venues/edit/${venue.id}`} className="item-options">
+            <Link
+                to={{
+                    pathname: `/manage-venue`,
+                }}
+                state={{
+                    venue,
+                }}
+                className="item-options"
+                >
                 Edit Venue Info
             </Link>
             <Link to={`/venues/qr/${venue.id}`} className="item-options">

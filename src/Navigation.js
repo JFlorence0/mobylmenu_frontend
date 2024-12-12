@@ -8,10 +8,10 @@ import Menu from './screens/userScreens/Menu';
 import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScreen';
 import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
-import ManageMenuScreen from './screens/restaurantScreens/ManageMenuScreen';
-import ManageMenuItemScreen from './screens/restaurantScreens/ManageMenuItemScreen';
-import VenueLocationsScreen from './screens/restaurantScreens/VenueLocationsScreen';
-import ManageVenueScreen from './screens/restaurantScreens/ManageVenueScreen';
+import ManageMenuScreen from './screens/restaurantScreens/manageMenuStack/ManageMenuScreen';
+import ManageMenuItemScreen from './screens/restaurantScreens/manageMenuStack/ManageMenuItemScreen';
+import VenueLocationsScreen from './screens/restaurantScreens/manageVenueStack/VenueLocationsScreen';
+import ManageVenueScreen from './screens/restaurantScreens/manageVenueStack/ManageVenueScreen';
 import SettingsScreen from './screens/restaurantScreens/SettingsScreen';
 
 // Context

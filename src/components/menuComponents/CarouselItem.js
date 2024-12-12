@@ -1,7 +1,7 @@
 import React from 'react';
 import OrderInteractionContainer from './OrderInteractionContainer';
 
-import '../../styles/menuStyles/MenuItemSection.css'
+import '../../styles/userStyles/menuStyles/MenuItemSection.css'
 
 const CarouselItem = ({ menuItem, venue, orderingEnabled, tableId, addItemToOrder, addItemToOrderWithTableId }) => {
   return (

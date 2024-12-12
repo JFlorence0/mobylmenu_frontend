@@ -47,3 +47,9 @@
     height: 20px;
     margin-right: 15px;
 }
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }

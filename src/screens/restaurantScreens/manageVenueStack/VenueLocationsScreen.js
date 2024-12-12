@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BusinessContext } from '../../contexts/BusinessContext';
-import VenueLocationsListComponent from '../../components/businessComponents/venueLocationComponents/VenueLocationsListComponent';
-import DeleteConfirmationWindow from '../../components/businessComponents/DeleteConfirmationWindow';
-import VenueLocationsHeader from '../../components/businessComponents/venueLocationComponents/VenueLocationsHeader';
-import Header from '../../components/Header';
-import HeaderSpacer from '../../components/HeaderSpacer';
+import { BusinessContext } from '../../../contexts/BusinessContext';
+import VenueLocationsListComponent from '../../../components/businessComponents/venueLocationComponents/VenueLocationsListComponent';
+import DeleteConfirmationWindow from '../../../components/businessComponents/DeleteConfirmationWindow';
+import VenueLocationsHeader from '../../../components/businessComponents/venueLocationComponents/VenueLocationsHeader';
+import Header from '../../../components/Header';
+import HeaderSpacer from '../../../components/HeaderSpacer';
 
 const VenueLocationsScreen = ({
   maxVenuesPerPage = 50,

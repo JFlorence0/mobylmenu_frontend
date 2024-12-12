@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/menuStyles/MenuItemSection.css'
+import '../../styles/userStyles/menuStyles/MenuItemSection.css'
 
 const MenuItemSection = ({ categories, selectedCategory, setSelectedCategory }) => {
   return (
