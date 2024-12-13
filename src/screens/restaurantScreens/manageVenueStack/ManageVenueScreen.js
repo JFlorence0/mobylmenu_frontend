@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import Autocomplete from 'react-google-autocomplete';
 
 import FormHeader from '../../../components/businessComponents/FormHeader';
@@ -101,6 +102,9 @@ const ManageVenueScreen = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{`Manage Venue | MobylMenu`}</title>
+      </Helmet>
       <FormHeader
         buttonTitle={"Submit"}
         title={"Manage Venue"}

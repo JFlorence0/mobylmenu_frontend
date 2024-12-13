@@ -42,43 +42,17 @@ const VenueLocationsHeader = ({ numVenues, searchTerm, setSearchTerm }) => {
               {showOptions &&
               <ul className="venue-action-options">
                 <li>
-                  <Link to="/manage-venue">
-                    <img
-                      className="venue-locations-plus-sign"
-                      src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/new-plus.png"
-                      alt="Add Venue"
-                    />
+                  <Link to="/manage-venue" className="venue-action-options-text">
                     Add Venue
                   </Link>
                 </li>
                 <li>
-                  <Link to="/venues/photos">
-                    <img
-                      className="venue-locations-upload"
-                      src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/add-pics2.png"
-                      alt="Manage Venue Photos"
-                    />
-                    Manage Venue Photos
+                  <Link to="/manage-tags-photos" className="venue-action-options-text">
+                    Manage Tags/Photos
                   </Link>
                 </li>
                 <li>
-                  <Link to="/venues/tags">
-                    <img
-                      className="venue-locations-tags"
-                      src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/tag.png"
-                      alt="Manage Venue Tags"
-                    />
-                    Manage Venue Tags
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/venues/schedules">
-                    <img
-                      id="calendar"
-                      className="venue-locations-tags"
-                      src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/calendar-black.png"
-                      alt="Manage Schedules"
-                    />
+                  <Link to="/manage-venue-schedule" className="venue-action-options-text">
                     Manage Schedules
                   </Link>
                 </li>

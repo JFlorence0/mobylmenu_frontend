@@ -126,3 +126,7 @@
   .venue-action-options li:hover {
     background-color: #f2f2f2;
   }
+
+  .venue-action-options-text {
+    font-size: 0.8rem;
+  }

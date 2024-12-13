@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BusinessContext } from '../../../contexts/BusinessContext';
 import VenueLocationsListComponent from '../../../components/businessComponents/manageVenueComponents/VenueLocationsListComponent';
 import DeleteConfirmationWindow from '../../../components/businessComponents/DeleteConfirmationWindow';
 import VenueLocationsHeader from '../../../components/businessComponents/manageVenueComponents/VenueLocationsHeader';
-import Header from '../../../components/Header';
-import HeaderSpacer from '../../../components/HeaderSpacer';
+import NavigationSidebar from '../../../components/NavigationSidebar';
 import '../../../styles/baseStyles/Base.css';
 
 const VenueLocationsScreen = ({
@@ -33,8 +33,10 @@ const VenueLocationsScreen = ({
 
   return (
     <div>
-      <Header path={[{ label: 'Venue Locations', link: '/venue-locations' }]} />
-      <HeaderSpacer />
+      <Helmet>
+        <title>{`Venue Locations | MobylMenu`}</title>
+      </Helmet>
+      <NavigationSidebar />
     
       <div className="division-container">
         <div className="left-divided-container">

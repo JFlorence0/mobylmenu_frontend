@@ -44,25 +44,22 @@ a {
   flex-direction: column;
 }
 
-.main-container {
+.dashboard-main-container {
     height: 100%;
 }
 
-.main-sub-container {
-  height: 100vh;
+.dashboard-container {
+  height: 100%;
   width: 100vw;
   background-color: transparent;
+  display: flex;
+  flex-direction: column;
 }
 
-.company-info {
-  width: 70vw;
-  height: 70vh;
-  max-height: 600px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 8vw;
-  margin-top: 7%;
-  border-radius: 8px;
+.dashboard-side-bar {
+  width: 250px;
+  max-height: 100%;
+  border-right: 2px solid var(--lightgray);
 }
 
 .info-container {
@@ -796,12 +793,6 @@ select.languages {
     font-size: 0.9em;
     background-color: transparent;
     margin-left: 3px;
-    margin-right: 0;
-  }
-
-  .main-sub-container {
-    display: flex;
-    flex-direction: column;
     margin-right: 0;
   }
 

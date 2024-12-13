@@ -3,8 +3,7 @@ import { BusinessContext } from '../../../contexts/BusinessContext';
 import ManageMenuItemsSection from '../../../components/businessComponents/manageMenuComponents/ManageMenuItemsSection';
 import ManageMenuItemsHeader from '../../../components/businessComponents/manageMenuComponents/ManageMenuItemsHeader';
 import '../../../styles/restaurantStyles/ManageMenuStyles.css';
-import Header from '../../../components/Header';
-import HeaderSpacer from '../../../components/HeaderSpacer';
+import NavigationSidebar from '../../../components/NavigationSidebar';
 
 const ManageMenuScreen = () => {
   const { getAllMenus, getAllMenuItems, displayedMenuItems } = useContext(BusinessContext);
@@ -62,8 +61,7 @@ const ManageMenuScreen = () => {
 
   return (
     <div>
-        <Header path={[{ label: 'Manage Menu', link: '/manage-menu' }]} />
-        <HeaderSpacer />
+        <NavigationSidebar />
         <ManageMenuItemsHeader menus={menus} currentMenuId={selectedMenu?.id} onCreateMenu={onCreateMenu}
           menuItems={displayedMenuItems} menuCompleteness={menuCompleteness} menuNotCompleteText={menuNotCompleteText}
         />

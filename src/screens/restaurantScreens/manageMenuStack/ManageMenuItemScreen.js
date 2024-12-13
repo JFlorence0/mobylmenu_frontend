@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BusinessContext } from '../../../contexts/BusinessContext';
-import Header from '../../../components/Header';
-import HeaderSpacer from '../../../components/HeaderSpacer';
+import NavigationSidebar from '../../../components/NavigationSidebar';
 import CustomizationForm from '../../../components/businessComponents/manageMenuComponents/CustomizationForm';
 
 import '../../../styles/restaurantStyles/FormStyles.css'
@@ -202,9 +201,7 @@ const ManageMenuItemScreen = () => {
 
     return (
         <div className="form-container1">
-          <Header path={[{"label": "Manage Menu", "link": "/manage-menu"},
-            {"label": "Manage Menu Item", "link": "/manage-menu-item"}]} />
-          <HeaderSpacer />
+          <NavigationSidebar />
             <div className="form-container-header">
                 <h2>{menuItem ? 'Edit Menu Item' : 'Add Menu Item'}</h2>
             </div>

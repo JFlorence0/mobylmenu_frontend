@@ -25,17 +25,16 @@ const VenueLocationsListComponent = ({ venues, subscribedToSpotlightVenueIds,
         {venues?.map((venue) => (
         <div className="venue-locations-list-item-container" key={venue.id}>
             <div className="venue-locations-list-item">
-            <Link to={`/venues/${venue.id}`}>
-                {venue.venue_name}
-            </Link>
-            <br />
-            <span>{venue.address}</span>
-            <br />
-            <span>
-                {venue.city}, {venue.state}
-            </span>
-            <br />
-            {venue.zipcode}
+                <Link to={`/venues/${venue.id}`} className="venue-name">
+                    {venue.venue_name}
+                </Link>
+                <span className="venue-information-text">{venue.address}</span>
+                <span className="venue-information-text">
+                    {venue.city}, {venue.state}
+                </span>
+                <span className="venue-information-text">
+                    {venue.zipcode}
+                </span>
             </div>
             <div className="venue-locations-list-action-container">
             <Link

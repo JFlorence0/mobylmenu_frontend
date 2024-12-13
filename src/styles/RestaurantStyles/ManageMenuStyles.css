@@ -56,8 +56,9 @@
   }
 
 .item-options {
-    font-size: 13px;
     font-family: var(--secondary-font);
+    font-size: 0.75rem;
+    color: var(--main-color);
   }
 
   .item-delete {

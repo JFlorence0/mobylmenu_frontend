@@ -16,11 +16,24 @@
 
   .venue-locations-list-item {
     padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .venue-name {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    margin-bottom: 5px;
+  }
+
+  .venue-information-text {
+    font-size: 0.8rem;
+    color: var(--font-color);
   }
 
   .venue-locations-list-action-container {
     margin-right: 35px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
   }

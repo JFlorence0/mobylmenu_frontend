@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header';
+import Header from '../../components/NavigationSidebar';
 import HeaderSpacer from '../../components/HeaderSpacer';
 import Image from '../../components/Image';
 
 import '../../styles/restaurantStyles/SettingsStyles.css';
+import NavigationSidebar from '../../components/NavigationSidebar';
 
 const SettingsScreen = () => {
   const [darkMode, setDarkMode] = useState(false); // Example for handling dark mode
@@ -14,8 +15,7 @@ const SettingsScreen = () => {
 
   return (
     <div>
-      <Header path={[{ label: 'Settings', link: '/settings' }]} />
-      <HeaderSpacer />
+      <NavigationSidebar path={[{ label: 'Settings', link: '/settings' }]} />
 
       <div className="main-container">
         <div className="wrapper" id="wrapper">

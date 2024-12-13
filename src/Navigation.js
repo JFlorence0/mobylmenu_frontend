@@ -8,10 +8,17 @@ import Menu from './screens/userScreens/Menu';
 import AuthenticationScreen from './screens/restaurantScreens/AuthenticationScreen';
 import RestaurantLanding from './screens/restaurantScreens/RestaurantLanding';
 import Dashboard from './screens/restaurantScreens/Dashboard';
+
+// Manage Menu Stack
 import ManageMenuScreen from './screens/restaurantScreens/manageMenuStack/ManageMenuScreen';
 import ManageMenuItemScreen from './screens/restaurantScreens/manageMenuStack/ManageMenuItemScreen';
+
+// Manage Venue Stack
 import VenueLocationsScreen from './screens/restaurantScreens/manageVenueStack/VenueLocationsScreen';
 import ManageVenueScreen from './screens/restaurantScreens/manageVenueStack/ManageVenueScreen';
+import ManageTagsAndPhotosScreen from './screens/restaurantScreens/manageMenuStack/ManageTagsAndPhotosScreen';
+import ManageScheduleScreen from './screens/restaurantScreens/manageMenuStack/ManageScheduleScreen';
+
 import SettingsScreen from './screens/restaurantScreens/SettingsScreen';
 
 // Context
@@ -41,14 +48,18 @@ const Navigation = () => {
           path="/dashboard"
           element={isLoggedIn && isVenue ? <Dashboard /> : <Navigate to="/auth" />}
         />
+
+        {/* Manage Menu Stack */}
         <Route
-          path="/manage-menu"
+          path="/manage-menus"
           element={isLoggedIn && isVenue ? <ManageMenuScreen /> : <Navigate to="/auth" />}
         />
         <Route
           path="/manage-menu-item"
           element={isLoggedIn && isVenue ? <ManageMenuItemScreen /> : <Navigate to="/auth" />}
         />
+      
+        {/* Manage Venue Stack */}
         <Route
           path="/venue-locations"
           element={isLoggedIn && isVenue ? <VenueLocationsScreen /> : <Navigate to="/auth" />}
@@ -57,6 +68,16 @@ const Navigation = () => {
           path="/manage-venue"
           element={isLoggedIn && isVenue ? <ManageVenueScreen /> : <Navigate to="/auth" />}
         />
+        <Route
+          path="/manage-tags-photos"
+          element={isLoggedIn && isVenue ? <ManageTagsAndPhotosScreen /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/manage-schedule"
+          element={isLoggedIn && isVenue ? <ManageScheduleScreen /> : <Navigate to="/auth" />}
+        />
+
+
         <Route
           path="/settings"
           element={isLoggedIn && isVenue ? <SettingsScreen /> : <Navigate to="/auth" />}
