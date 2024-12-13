@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../../styles/restaurantStyles/venueLocationStyles/VenueLocationsHeader.css';
+import '../../../styles/restaurantStyles/manageVenueStyles/VenueLocationsHeader.css';
 
 const VenueLocationsHeader = ({ numVenues, searchTerm, setSearchTerm }) => {
     const [showOptions, setShowOptions] = useState(false);
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
       };
+    const toggleShowOptions = () => {
+      setShowOptions(!showOptions)
+    }
 
   return (
     <div className="venue-locations-header">
           <div>
             <div className="venue-locations-top">
-              <h2 id="header" className="help-container-header">
+              <h2 id="header" className="divided-container-header">
                 Venue Locations&nbsp;
-                <span className="count">({numVenues})</span>
+                <span className="divided-container-header">({numVenues})</span>
                 <img
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
@@ -28,16 +31,18 @@ const VenueLocationsHeader = ({ numVenues, searchTerm, setSearchTerm }) => {
           </div>
           <div className="venue-locations-options-dropdown-container">
             <div className="venue-locations-options-dropdown">
-              <div className="select-btn" onClick={() => {}}>
+              <div className="select-btn" onClick={() => {
+                toggleShowOptions();
+              }}>
                 <span className="sBtn-text" style={{ fontSize: '14px' }}>
                   Venue Actions
                 </span>
                 <i className="bx bx-chevron-down chevron-icon"></i>
               </div>
               {showOptions &&
-              <ul className="options">
+              <ul className="venue-action-options">
                 <li>
-                  <Link to="/venues/add">
+                  <Link to="/manage-venue">
                     <img
                       className="venue-locations-plus-sign"
                       src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/new-plus.png"
@@ -81,14 +86,14 @@ const VenueLocationsHeader = ({ numVenues, searchTerm, setSearchTerm }) => {
             }
             </div>
             <input
-              id="search"
+              id="search-venues"
               type="search"
               aria-label="Search"
               name="searched"
               placeholder="Search venues"
+              className="seach-container"
               value={searchTerm}
               onChange={handleSearchChange}
-              style={{ marginBottom: '1rem' }}
             />
           </div>
         </div>

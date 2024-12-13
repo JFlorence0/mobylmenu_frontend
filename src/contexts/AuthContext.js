@@ -12,8 +12,6 @@ export const AuthProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [userData, setUserData] = useState(null);
 
-  console.log(userData);
-
   // Load user from localStorage on app load
   useEffect(() => {
     let savedUserData = localStorage.getItem('userData');
@@ -22,7 +20,6 @@ export const AuthProvider = ({ children }) => {
       setUserData(savedUserData);
       setIsLoggedIn(true);
       setIsVenue(savedUserData?.user?.is_venue);
-      console.log('LOG SAVED USER DATA', savedUserData);
     }
   }, []);
 

@@ -1,0 +1,188 @@
+.venue-info-fields {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.venue-info-fields .field {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    color: var(--font-color);
+    font-family: var(--secondary-font);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    height: 30px;
+    width: 400px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    padding-left: 10px;
+    transition: border-color 0.3s ease-in-out;
+    font-size: 0.9rem;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: rgb(0, 166, 255, 0.8);
+    box-shadow: 0 0 5px var(--main-color);
+  }
+
+  /* Style the placeholder text */
+.form-group input::placeholder {
+    color: grey;
+    opacity: 0.8;
+  }
+
+.form-tip {
+    font-size: 0.7rem;
+    color: var(--tip-font-color);
+    margin-top: 10px;
+    margin-left: 2px;
+}
+
+.category-label {
+    font-family: var(--secondary-font);
+    margin-bottom: 20px;
+}
+
+.checkbox-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.checkbox-container span {
+  font-family: var(--secondary-font);
+}
+
+.checkbox-container input {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.question-mark-tooltip {
+  width: 14px;
+  height: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.venue-form-container {
+  margin-bottom: 100px;
+}
+
+.custom-form-button {
+  background-color: var(--main-color);
+  color: #fff;
+  font-family: var(--secondary-font);
+  letter-spacing: .5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+  
+  .custom-form-button:disabled {
+    background-color: rgba(0, 166, 255, 0.8);
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.9);
+  }  
+  
+  .custom-form-button.submitting {
+    background-color: rgb(18, 192, 18);
+  }
+
+  /* Remove the default focus outline */
+.custom-form-button:focus {
+    outline: none;
+  }
+
+  .form-button-checkmark {
+    width: 14px; /* Adjust size to fit */
+    height: 14px;
+    display: block;
+    stroke-width: 5;
+    stroke: white;
+    fill: none;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .form-button-checkmark.active {
+    opacity: 1; /* Visible during animation */
+  }
+  
+  .form-button-checkmark-path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: form-button-checkmark-draw 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes form-button-checkmark-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .seach-container {
+    display: flex;
+    height: 40px;
+    background-color: #fff;
+    padding: 8px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    border: 2px solid var(--lightgray);
+    font-size: 8px;
+    width: 200px;
+    font-size: 0.9rem;
+  }
+
+  .seach-container:focus {
+    outline: none;
+    border-color: rgb(0, 166, 255, 0.8);
+    box-shadow: 0 0 5px var(--main-color);
+  }
+  

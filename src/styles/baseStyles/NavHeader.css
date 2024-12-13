@@ -9,7 +9,7 @@
 
 .navigation-container {
     z-index: 20;
-    height: 5rem;
+    height: 3rem;
     width: 100%;
     position: fixed;
     background-color: white;
@@ -83,5 +83,13 @@
 .header-spacer {
     width: 100%; /* Full screen width */
     height: 5rem; /* Matches the height of the Header */
-    background-color: transparent; /* No background color, acts purely as spacing */
+    background-color: transparent;
+}
+
+.form-header-spacer {
+    display: flex;
+    height: 2rem;
+    flex: 1;
+    align-items: center;
+    padding-left: 1rem;
 }

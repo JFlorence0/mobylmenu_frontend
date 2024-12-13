@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer';
 import '../../styles/restaurantStyles/DashboardStyles.css';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -16,6 +17,9 @@ const Dashboard = () => {
 
   return (
     <div className="main-container">
+      <Helmet>
+      <title>{`Dashboard | MobylMenu`}</title>
+      </Helmet>
       <div className="main-sub-container">
         <Header currentScreen={"Dashboard"}/>
         <HeaderSpacer />

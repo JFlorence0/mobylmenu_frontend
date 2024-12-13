@@ -5,7 +5,7 @@ import Header from '../../../components/Header';
 import HeaderSpacer from '../../../components/HeaderSpacer';
 import CustomizationForm from '../../../components/businessComponents/manageMenuComponents/CustomizationForm';
 
-import '../../../styles/restaurantStyles/manageMenuStyles/ManageMenuItemFormStyles.css'
+import '../../../styles/restaurantStyles/FormStyles.css'
 
 const ManageMenuItemScreen = () => {
     const { updateMenuItem, createMenuItem } = useContext(BusinessContext);

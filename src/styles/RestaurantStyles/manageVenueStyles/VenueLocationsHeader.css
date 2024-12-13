@@ -10,7 +10,8 @@
 
   .venue-locations-top {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
   }
   
   .help-container-header {
@@ -41,12 +42,11 @@
   .venue-locations-options-dropdown {
     position: relative;
     width: 200px;
-    height: 45px;
+    height: 35px;
   }
   
   .venue-locations-options-dropdown .select-btn {
     display: flex;
-    height: 40px;
     background-color: #fff;
     padding: 8px;
     font-weight: 400;
@@ -76,7 +76,6 @@
     border: 2px solid var(--lightgray);
   }
   
-  
   .venue-locations-options-dropdown.active .venue-locations-options {
     max-height: 250px;
     overflow-y: auto;
@@ -84,7 +83,6 @@
   
   .venue-locations-options .option {
     display: flex;
-    height: 40px;
     cursor: pointer;
     padding: 0 8px;
     border-radius: 8px;
@@ -102,4 +100,29 @@
   .venue-locations-tags {
     height: 1.1rem;
     width: 1.1rem;
+  }
+
+  .venue-action-options {
+    position: relative;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 10px;
+    border: 2px solid var(--lightgray);
+  }
+
+  .venue-action-options li {
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 8px;
+    align-items: center;
+    background-color: #fff;
+    font-size: 14px;
+    justify-content: flex-start;
+  }
+
+  .venue-action-options li:hover {
+    background-color: #f2f2f2;
   }

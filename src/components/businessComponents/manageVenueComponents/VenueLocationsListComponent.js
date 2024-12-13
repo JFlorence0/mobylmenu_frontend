@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../styles/restaurantStyles/venueLocationStyles/VenueLocationsList.css';
+import '../../../styles/restaurantStyles/manageVenueStyles/VenueLocationsList.css';
 
 const VenueLocationsListComponent = ({ venues, subscribedToSpotlightVenueIds,
     subscribedToTablesVenueIds, venuesWithHubs

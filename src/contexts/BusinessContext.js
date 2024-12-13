@@ -59,6 +59,45 @@ export const BusinessProvider = ({ children }) => {
     }
   };
 
+  const createVenue = async (formData) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}venues/`, 
+        formData,
+        {
+          headers: {
+            'Authorization': `Token ${userData?.token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Error creating venue:', error);
+      throw error;
+    }
+  };
+
+  const updateVenue = async (venueId, formData) => {
+    try {
+      const response = await axios.put(
+        `${BASE_URL}venues/${venueId}/`, 
+        formData, // Pass formData directly
+        {
+          headers: {
+            'Authorization': `Token ${userData?.token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating venue with ID ${venueId}:`, error);
+      throw error;
+    }
+  };
+  
+
   const createMenuItem = async (menuItemData, menu) => {
     try {
       // Add the menu ID to the FormData
@@ -103,8 +142,6 @@ export const BusinessProvider = ({ children }) => {
         if (formData.get('picture_compressed') && typeof formData.get('picture_compressed') === 'string' && formData.get('picture_compressed').startsWith('http')) {
           formData.delete('picture_compressed'); // Remove the field from formData
         }
-  
-        console.log('FORM DATA', formData);
     
         // Send the processed formData to the backend
         const res = await axios.put(
@@ -137,8 +174,10 @@ export const BusinessProvider = ({ children }) => {
     <BusinessContext.Provider value={{ 
       getAllMenus,
       getAllMenuItems,
+      displayedMenuItems,
       getAllVenues,
-      displayedMenuItems
+      createVenue,
+      updateVenue
      }}>
       {children}
     </BusinessContext.Provider>

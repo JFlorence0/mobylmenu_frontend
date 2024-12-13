@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BusinessContext } from '../../../contexts/BusinessContext';
-import VenueLocationsListComponent from '../../../components/businessComponents/venueLocationComponents/VenueLocationsListComponent';
+import VenueLocationsListComponent from '../../../components/businessComponents/manageVenueComponents/VenueLocationsListComponent';
 import DeleteConfirmationWindow from '../../../components/businessComponents/DeleteConfirmationWindow';
-import VenueLocationsHeader from '../../../components/businessComponents/venueLocationComponents/VenueLocationsHeader';
+import VenueLocationsHeader from '../../../components/businessComponents/manageVenueComponents/VenueLocationsHeader';
 import Header from '../../../components/Header';
 import HeaderSpacer from '../../../components/HeaderSpacer';
+import '../../../styles/baseStyles/Base.css';
 
 const VenueLocationsScreen = ({
   maxVenuesPerPage = 50,
@@ -31,25 +32,31 @@ const VenueLocationsScreen = ({
   }, []);
 
   return (
-    <div className="format-page-container">
+    <div>
       <Header path={[{ label: 'Venue Locations', link: '/venue-locations' }]} />
       <HeaderSpacer />
-      <div className="section-header">
-        <VenueLocationsHeader numVenues={numVenues} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <VenueLocationsListComponent venues={venues} subscribedToSpotlightVenueIds={subscribedToSpotlightVenueIds}
-          subscribedToTablesVenueIds={subscribedToTablesVenueIds} venuesWithHubs={venuesWithHubs}
-        />
-      </div>
+    
+      <div className="division-container">
+        <div className="left-divided-container">
+          <VenueLocationsHeader numVenues={numVenues} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <VenueLocationsListComponent venues={venues} subscribedToSpotlightVenueIds={subscribedToSpotlightVenueIds}
+            subscribedToTablesVenueIds={subscribedToTablesVenueIds} venuesWithHubs={venuesWithHubs}
+          />
 
-      {/* Delete Popup */}
-      {showDeleteConfirmationWindow && (
-        <DeleteConfirmationWindow 
-          title={"Delete Confirmation"}
-          confirmationText={"Are you sure you want to delete this venue?"}
-          setIsVisible={setShowDeleteConfirmationWindow}
-          onDelete={() => {setShowDeleteConfirmationWindow(false)}}
-        />
-      )}
+          {/* Delete Popup */}
+          {showDeleteConfirmationWindow && (
+            <DeleteConfirmationWindow 
+              title={"Delete Confirmation"}
+              confirmationText={"Are you sure you want to delete this venue?"}
+              setIsVisible={setShowDeleteConfirmationWindow}
+              onDelete={() => {setShowDeleteConfirmationWindow(false)}}
+            />
+          )}
+        </div>
+        <div className="right-divided-container">
+          <h3 className="divided-container-header">More, For Less</h3>
+        </div>
+      </div>
     </div>
   );
 };
