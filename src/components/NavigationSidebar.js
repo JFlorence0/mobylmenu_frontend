@@ -19,7 +19,7 @@ const NavigationSidebar = () => {
         },
         {
             img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-venues.png',
-            text: 'My Venues',
+            text: 'Manage Venues',
             link: '/venue-locations',
         },
         {

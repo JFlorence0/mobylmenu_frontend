@@ -1,3 +1,21 @@
+.form-header-container {
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid var(--lightgray);
+  background-color: white;
+}
+
+.form-header-spacer {
+  height: 2.5rem;
+}
+
 .venue-info-fields {
     display: flex;
     margin-bottom: 20px;
@@ -22,7 +40,7 @@
     margin-bottom: 20px;
 }
 
-.form-group input {
+.form-group input, .form-group textarea {
     height: 30px;
     width: 400px;
     border: 1px solid var(--light-grey);
@@ -32,16 +50,24 @@
     font-size: 0.9rem;
   }
   
-  .form-group input:focus {
+  .form-group input:focus, .form-group textarea:focus {
     outline: none;
     border-color: rgb(0, 166, 255, 0.8);
     box-shadow: 0 0 5px var(--main-color);
   }
 
   /* Style the placeholder text */
-.form-group input::placeholder {
+.form-group input::placeholder, .form-group textarea::placeholder {
     color: grey;
     opacity: 0.8;
+  }
+
+  .form-group textarea {
+    padding-top: 10px;
+    max-height: 200px;
+    min-height: 200px;
+    max-width: 400px;
+    min-width: 400px;
   }
 
 .form-tip {
@@ -100,6 +126,12 @@
   margin-bottom: 100px;
 }
 
+.form-header-text {
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  color: var(--font-color);
+}
+
 .custom-form-button {
   background-color: var(--main-color);
   color: #fff;
@@ -122,9 +154,9 @@
 }
   
   .custom-form-button:disabled {
-    background-color: rgba(0, 166, 255, 0.8);
+    background-color: rgba(0, 166, 255, 0.6);
     cursor: not-allowed;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
   }  
   
   .custom-form-button.submitting {

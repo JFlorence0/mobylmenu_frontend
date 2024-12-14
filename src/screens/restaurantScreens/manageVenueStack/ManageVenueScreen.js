@@ -109,6 +109,7 @@ const ManageVenueScreen = () => {
         buttonTitle={"Submit"}
         title={"Manage Venue"}
         onClick={handleSubmit}
+        path={"/venue-locations"}
         disabled={!formIsValid}
       />
       <FormHeaderSpacer />

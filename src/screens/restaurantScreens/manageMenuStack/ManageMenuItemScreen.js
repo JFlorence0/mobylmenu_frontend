@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BusinessContext } from '../../../contexts/BusinessContext';
-import NavigationSidebar from '../../../components/NavigationSidebar';
+import { Helmet } from 'react-helmet-async';
 import CustomizationForm from '../../../components/businessComponents/manageMenuComponents/CustomizationForm';
+import FormHeader from '../../../components/businessComponents/FormHeader';
+import FormHeaderSpacer from '../../../components/businessComponents/FormHeaderSpacer';
 
+import '../../../styles/baseStyles/Base.css'
 import '../../../styles/restaurantStyles/FormStyles.css'
 
 const ManageMenuItemScreen = () => {
@@ -23,9 +26,9 @@ const ManageMenuItemScreen = () => {
     const [itemType, setItemType] = useState(menuItem?.item_type || '');
     const [filteredCategories, setFilteredCategories] = useState(categories || []);
     const [showDropdown, setShowDropdown] = useState(false);
-    const [isFormValid, setIsFormValid] = useState(false);
+    const [formIsValid, setFormIsValid] = useState(false);
 
-    const [formState, setFormState] = useState({
+    const [formData, setFormData] = useState({
         name: menuItem?.name || '',
         itemType: menuItem?.itemType || '',
         price: menuItem?.price || '',
@@ -102,16 +105,33 @@ const ManageMenuItemScreen = () => {
       }));
     };
 
+    console.log(formIsValid)
+
+    const validateForm = () => {
+      const { name, itemType } = formData;
+  
+      // Check if all required fields are non-empty
+      return (
+        name.trim() !== '' &&
+        itemType.trim() !== ''
+      );
+    };
+  
+    // Update form validity whenever formData changes
+    useEffect(() => {
+      setFormIsValid(validateForm());
+    }, [formData]);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        setFormState((prev) => ({
+        setFormData((prev) => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value,
         }));
     };
 
     const handleFileChange = (e) => {
-        setFormState((prev) => ({
+      setFormData((prev) => ({
             ...prev,
             imageUri: URL.createObjectURL(e.target.files[0]), // Update with file object
         }));
@@ -141,7 +161,7 @@ const ManageMenuItemScreen = () => {
                 description,
                 imageUri,
                 dietaryOptions,
-            } = formState;
+            } = formData;
 
             const formData = new FormData();
             formData.append('name', name);
@@ -200,8 +220,20 @@ const ManageMenuItemScreen = () => {
     };
 
     return (
-        <div className="form-container1">
-          <NavigationSidebar />
+      <div>
+        <Helmet>
+          <title>{`Manage Menu Item | MobylMenu`}</title>
+        </Helmet>
+        <FormHeader
+          buttonTitle={"Submit"}
+          title={"Manage Menu Item"}
+          onClick={handleSave}
+          path={"/manage-menus"}
+          disabled={!formIsValid}
+        />
+        <FormHeaderSpacer />
+        <div className="division-container">
+          <div className="left-divided-container">
             <div className="form-container-header">
                 <h2>{menuItem ? 'Edit Menu Item' : 'Add Menu Item'}</h2>
             </div>
@@ -313,19 +345,12 @@ const ManageMenuItemScreen = () => {
                 maxGroupsLimit={5}
               />
             )}
+          </div>
+          <div className="right-divided-container">
 
-            <div className="form-group">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleSave}
-                disabled={!isFormValid}
-              >
-                Save
-              </button>
-            </div>
-
+          </div>
         </div>
+      </div>
     );
 };
 
