@@ -60,12 +60,16 @@ const ManageMenuScreen = () => {
   }, [getAllMenus, getAllMenuItems]);
 
   return (
-    <div>
+    <div className="division-container">
+      <div className="left-divided-container">
         <NavigationSidebar />
         <ManageMenuItemsHeader menus={menus} currentMenuId={selectedMenu?.id} onCreateMenu={onCreateMenu}
           menuItems={displayedMenuItems} menuCompleteness={menuCompleteness} menuNotCompleteText={menuNotCompleteText}
         />
         <ManageMenuItemsSection categories={categories} menuItems={displayedMenuItems} onEdit={onEdit} onDelete={onDelete} onAdd={onAdd} />
+      </div>
+
+      <div className="right-divided-container"></div>
     </div>
   );
 };

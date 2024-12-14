@@ -16,8 +16,8 @@ import ManageMenuItemScreen from './screens/restaurantScreens/manageMenuStack/Ma
 // Manage Venue Stack
 import VenueLocationsScreen from './screens/restaurantScreens/manageVenueStack/VenueLocationsScreen';
 import ManageVenueScreen from './screens/restaurantScreens/manageVenueStack/ManageVenueScreen';
-import ManageTagsAndPhotosScreen from './screens/restaurantScreens/manageMenuStack/ManageTagsAndPhotosScreen';
-import ManageScheduleScreen from './screens/restaurantScreens/manageMenuStack/ManageScheduleScreen';
+import ManageTagsAndPhotosScreen from './screens/restaurantScreens/manageVenueStack/ManageTagsAndPhotosScreen';
+import ManageScheduleScreen from './screens/restaurantScreens/manageVenueStack/ManageScheduleScreen';
 
 import SettingsScreen from './screens/restaurantScreens/SettingsScreen';
 

@@ -37,28 +37,41 @@
 }
 
 .sidebar-container.collapsed {
-    width: 64px;
+    width: 70px;
 }
 
 .toggle-bar-container {
     cursor: pointer;
-    width: 15px;
+    min-width: 20px;
     height: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.toggle-bar {
+.toggle-bar,
+.toggle-bar-open {
     height: 100%;
-    background-color: black;
+    background-color: var(--light-grey);
     width: 3px;
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .toggle-bar-container:hover .toggle-bar {
     background-color: transparent;
-    background-image: url('https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/MM-Images/chevron-forward.png');
+    background-image: url('https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-arrow-back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 8px;
+    width: 20px;
+}
+
+.toggle-bar-container:hover .toggle-bar-open {
+    background-color: transparent;
+    background-image: url('https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-arrow-forward.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
 }
 
 .logo-container {
@@ -70,8 +83,8 @@
 }
 
 .sidebar-logo {
-    max-width: 80%;
-    max-height: 40px;
+    max-width: 100%;
+    max-height: 35px;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -92,6 +105,7 @@
     align-items: flex-start;
     margin-top: 20px;
     transition: opacity 0.3s ease-in-out;
+    width: 100%;
 }
 
 .sidebar-option {
@@ -101,6 +115,7 @@
     text-decoration: none;
     color: #333;
     transition: background-color 0.3s ease-in-out;
+    width: 100%;
 }
 
 .sidebar-option:hover {

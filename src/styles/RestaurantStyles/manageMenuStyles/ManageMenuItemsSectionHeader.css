@@ -1,16 +1,13 @@
 .manage-menu-item-section-header-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.manage-menu-item-section-header-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-  
-.manage-menu-item-section-header-info h2 {
-    margin-bottom: 5px;
+.menu-item-header {
+    font-family: var(--secondary-font);
+    color: var(--font-color);
 }
 
 .manage-menu-item-section-header-count {
@@ -20,13 +17,11 @@
 .manage-menu-item-section-header-pair {
     display: flex;
     align-items: center;
-    margin: 10px;
 }
-  
+
 .manage-menu-item-section-header-pair a {
-    color: var(--main-color);
     text-decoration: none;
-    margin-top: 0;
+    font-size: 0.8rem;
 }
 
 #nn {
@@ -35,13 +30,12 @@
     width: 0.9rem;
   }
 
-.manage-menu-item-section-header-dropdown {
+.manage-menu-item-section-header-dropdown, .add-menu-item-button {
     position: relative;
-    width: 200px;
-    height: 45px;
+    width: 150px;
 }
   
-.manage-menu-item-section-header-dropdown .select-btn {
+.manage-menu-item-section-header-dropdown .select-btn, .add-menu-item-button {
     display: flex;
     height: 40px;
     background-color: #fff;

@@ -1,9 +1,23 @@
 :root {
-    --font-color: rgb(65, 69, 82);
+    --background-color: white;
+    --highlight: #1cc283;
+    --main-color: #00A6FF;
+    --white: whitesmoke;
+    --black: #202124;
+    --true-white: white;
+    --lightgray: #F0F0F0;
+    --grayoutline: lightgray;
+    --darkgray: #DEDEDE;
+    --blue: #005A9C;
+    --main-font: 'SF Compact Rounded';
+    --secondary-font: 'SF Compact Rounded Medium';
+    --new-back: #FAFAFF;
+    --background-hover: #ECECEC;
+    --font-color: #414552;
     --light-grey: #c3bdbd;
     --tip-font-color: rgb(108, 118, 136);
     --preview-background-color: rgb(245, 246, 248);
-}
+  }
 
 a:focus {
     outline: none;
@@ -16,7 +30,7 @@ a:focus {
 }
 
 .left-divided-container {
-    padding-left: 10%;
+    padding-left: 75px;
     width: 50%;
     padding-bottom: 50px;
     padding-top: 20px;

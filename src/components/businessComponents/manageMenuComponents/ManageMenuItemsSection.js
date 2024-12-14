@@ -20,7 +20,7 @@ const ManageMenuItemsSection = ({ categories, menuItems, onEdit, onDelete, onAdd
                   <div className="manage-menu-item-container" key={menuItem.id}>
                     <div className="edit-menu-item">
                       <div>
-                        <span className="menu_item-name">
+                        <span className="menu-item-name">
                           {menuItem.name}
                         </span>
                         {!menuItem.picture && (

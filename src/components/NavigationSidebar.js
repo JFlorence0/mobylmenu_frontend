@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/baseStyles/NavSidebar.css';
+import { BusinessContext } from '../contexts/BusinessContext';
 
 const NavigationSidebar = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const { isCollapsed, setIsCollapsed } = useContext(BusinessContext);
 
     // Toggle the sidebar collapsed state
     const toggleSidebar = () => {
@@ -12,27 +13,27 @@ const NavigationSidebar = () => {
 
     const sidebarOptions = [
         {
-            img: 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/new-m-black.png',
+            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-menu.png',
             text: 'Manage Menus',
             link: '/manage-menus',
         },
         {
-            img: 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/venue-black.png',
+            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-venues.png',
             text: 'My Venues',
             link: '/venue-locations',
         },
         {
-            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/MM-Images/atom.png',
+            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-pegasus.png',
             text: 'Pegasus',
             link: '/pegasus',
         },
         {
-            img: 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/subscription-icon.png',
+            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-subscribe.png',
             text: 'Subscriptions',
             link: '/subscriptions',
         },
         {
-            img: 'https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/settings-black.png',
+            img: 'https://mobyl-menu-bucket.s3.us-east-1.amazonaws.com/mm_react_web/Sibebar-settings.png',
             text: 'Settings',
             link: '/settings',
         },
@@ -42,6 +43,7 @@ const NavigationSidebar = () => {
         <div className={`sidebar-container ${isCollapsed ? 'collapsed' : 'expanded'}`}>
             <div className="sidebar">
                 <div className="logo-container">
+                    <Link to="/dashboard">     
                     {isCollapsed ? (
                         <img
                             src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/MM-M.png"
@@ -55,6 +57,7 @@ const NavigationSidebar = () => {
                             className="sidebar-logo"
                         />
                     )}
+                    </Link>
                 </div>
 
                 <div className="sidebar-options">
@@ -72,7 +75,7 @@ const NavigationSidebar = () => {
             </div>
             {/* Toggle button */}
             <div className="toggle-bar-container">
-                <div className="toggle-bar" onClick={toggleSidebar}></div>
+                <div className={`${isCollapsed ? "toggle-bar-open" : "toggle-bar"}`} onClick={toggleSidebar}></div>
             </div>
         </div>
     );

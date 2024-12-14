@@ -34,11 +34,9 @@ const MenuItemsSectionHeader = ({
 
   return (
     <div className="manage-menu-item-section-header-container">
-      {/* Header Section */}
-      <div className="manage-menu-item-section-header-info">
         <div>
           <h2>
-            <span style={{ fontWeight: 'normal' }}>Menu Items</span>&nbsp;
+            <span className="menu-item-header">Menu Items</span>&nbsp;
             <span className="manage-menu-item-section-header-count">({menuItems?.length})</span>
           </h2>
         </div>
@@ -50,25 +48,14 @@ const MenuItemsSectionHeader = ({
               title="The limit is 50 items. Upgrade your account to add more than 50 menu items, or create a separate menu."
               onClick={(e) => e.preventDefault()}
             >
-              <img
-                id="nn"
-                src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/plus.png"
-                alt="Add Menu Item"
-              />
               Add Menu Item
             </a>
           ) : (
-            <Link to="/manage-menu-item" className="manage-menu-action-button">
-                <img
-                id="nn"
-                src="https://mobyl-menu-bucket.s3.amazonaws.com/MM-Images/plus.png"
-                alt="Add Menu Item"
-                />
+            <Link to="/manage-menu-item" className="add-menu-item-button">
                 Add Menu Item
             </Link>
           )}
         </div>
-      </div>
 
       {/* Dropdown Menu */}
       <div className="manage-menu-item-section-header-dropdown">

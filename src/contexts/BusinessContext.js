@@ -10,6 +10,7 @@ export const BusinessContext = createContext();
 export const BusinessProvider = ({ children }) => {
   const { userData } = useContext(AuthContext);
   const [displayedMenuItems, setDisplayedMenuItems] = useState([]);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const getAllMenus = async () => {
     try {
@@ -177,7 +178,9 @@ export const BusinessProvider = ({ children }) => {
       displayedMenuItems,
       getAllVenues,
       createVenue,
-      updateVenue
+      updateVenue,
+      isCollapsed,
+      setIsCollapsed
      }}>
       {children}
     </BusinessContext.Provider>

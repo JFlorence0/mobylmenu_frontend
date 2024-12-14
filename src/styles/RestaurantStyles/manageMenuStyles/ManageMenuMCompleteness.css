@@ -1,17 +1,23 @@
-.menu-completness-container {
+.menu-completeness-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 2rem;
     margin-top: 1vh;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
   }
   
   .menu-complete-percentage-container {
     display: flex;
   }
   
-  .menu-completness-text {
+  .menu-completeness-text,   .menu-completeness-text-reg {
     font-size: 0.8rem;
     margin-right: 0.3rem;
+    color: var(--font-color);
+    font-family: var(--secondary-font);
+  }
+
+  .menu-completeness-text-reg {
+    font-family: var(--main-font);
   }

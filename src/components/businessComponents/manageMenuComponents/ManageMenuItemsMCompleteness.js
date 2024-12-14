@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/restaurantStyles/manageMenuStyles/ManageMenuMCompleteness.css'
 
 const MenuCompletenessComponent = ({ menuItems, menuCompleteness, menuNotCompleteText }) => {
   return (
@@ -8,7 +9,7 @@ const MenuCompletenessComponent = ({ menuItems, menuCompleteness, menuNotComplet
           <div className="menu-complete-percentage-container">
             <span className="menu-completeness-text">Menu Completeness:</span>
             <span className="menu-completeness-text">{menuCompleteness}</span>
-            <span className="menu-completeness-text" style={{ marginLeft: '60px' }}>
+            <span className="menu-completeness-text-reg" style={{ marginLeft: '60px' }}>
               {menuNotCompleteText}
             </span>
           </div>
